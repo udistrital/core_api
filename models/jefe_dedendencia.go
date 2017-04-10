@@ -21,7 +21,7 @@ type JefeDependencia struct {
 }
 
 func (t *JefeDependencia) TableName() string {
-	return "actividad_economica_necesidad"
+	return "jefe_dependencia"
 }
 
 func init() {

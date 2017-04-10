@@ -17,7 +17,7 @@ type OrdenadorGasto struct {
 }
 
 func (t *OrdenadorGasto) TableName() string {
-	return "actividad_economica_necesidad"
+	return "ordenador_gasto"
 }
 
 func init() {

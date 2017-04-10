@@ -19,7 +19,7 @@ type RubrosDependencia struct {
 }
 
 func (t *RubrosDependencia) TableName() string {
-	return "actividad_economica_necesidad"
+	return "rubros_dependencia"
 }
 
 func init() {

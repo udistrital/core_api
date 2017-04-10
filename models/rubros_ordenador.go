@@ -20,7 +20,7 @@ type RubrosOrdenador struct {
 }
 
 func (t *RubrosOrdenador) TableName() string {
-	return "actividad_economica_necesidad"
+	return "rubros_ordenador"
 }
 
 func init() {
