@@ -20,6 +20,35 @@ func init() {
 			),
 		),
 
+		beego.NSNamespace("/ciiu_division",
+			beego.NSInclude(
+				&controllers.CiiuDivisionController{},
+			),
+		),
+
+		beego.NSNamespace("/snies_area",
+			beego.NSInclude(
+				&controllers.SniesAreaController{},
+			),
+		),
+		beego.NSNamespace("/snies_nucleo_basico",
+			beego.NSInclude(
+				&controllers.SniesNucleoBasicoController{},
+			),
+		),
+
+		beego.NSNamespace("/ciiu_clase",
+			beego.NSInclude(
+				&controllers.CiiuClaseController{},
+			),
+		),
+
+		beego.NSNamespace("/ciiu_subclase",
+			beego.NSInclude(
+				&controllers.CiiuSubclaseController{},
+			),
+		),
+
 		beego.NSNamespace("/ciiu_tipo",
 			beego.NSInclude(
 				&controllers.CiiuTipoController{},
