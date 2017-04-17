@@ -79,6 +79,18 @@ func init() {
 			),
 		),
 
+		beego.NSNamespace("/sucursal",
+			beego.NSInclude(
+				&controllers.SucursalController{},
+			),
+		),
+
+		beego.NSNamespace("/banco",
+			beego.NSInclude(
+				&controllers.BancoController{},
+			),
+		),
+
 	)
 	beego.AddNamespace(ns)
 }
