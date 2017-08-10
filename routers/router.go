@@ -91,6 +91,18 @@ func init() {
 			),
 		),
 
+		beego.NSNamespace("/punto_salarial",
+			beego.NSInclude(
+				&controllers.PuntoSalarialController{},
+			),
+		),
+
+		beego.NSNamespace("/salario_minimo",
+			beego.NSInclude(
+				&controllers.SalarioMinimoController{},
+			),
+		),
+
 	)
 	beego.AddNamespace(ns)
 }
