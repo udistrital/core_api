@@ -1,0 +1,2520 @@
+swagger: "2.0"
+info:
+  title: beego Test API
+  description: beego has a very cool tools to autogenerate documents for your API
+  version: 1.0.0
+  termsOfService: http://beego.me/
+  contact:
+    email: astaxie@gmail.com
+  license:
+    name: Apache 2.0
+    url: http://www.apache.org/licenses/LICENSE-2.0.html
+basePath: /v1
+paths:
+  /atributo_documento/:
+    get:
+      tags:
+      - valor_atributo_documento
+      description: get TipoDocumento
+      operationId: TipoDocumentoController.Get All
+      parameters:
+      - in: query
+        name: query
+        description: Filter. e.g. col1:v1,col2:v2 ...
+        type: string
+      - in: query
+        name: fields
+        description: Fields returned. e.g. col1,col2 ...
+        type: string
+      - in: query
+        name: sortby
+        description: Sorted-by fields. e.g. col1,col2 ...
+        type: string
+      - in: query
+        name: order
+        description: Order corresponding to each sortby field, if single value, apply
+          to all sortby fields. e.g. desc,asc ...
+        type: string
+      - in: query
+        name: limit
+        description: Limit the size of result set. Must be an integer
+        type: string
+      - in: query
+        name: offset
+        description: Start position of result set. Must be an integer
+        type: string
+      responses:
+        "200":
+          description: ""
+          schema:
+            $ref: '#/definitions/models.TipoDocumento'
+        "403":
+          description: ""
+    post:
+      tags:
+      - valor_atributo_documento
+      description: create TipoDocumento
+      operationId: TipoDocumentoController.Post
+      parameters:
+      - in: body
+        name: body
+        description: body for TipoDocumento content
+        required: true
+        schema:
+          $ref: '#/definitions/models.TipoDocumento'
+      responses:
+        "201":
+          description: '{int} models.TipoDocumento'
+        "403":
+          description: body is empty
+  /atributo_documento/{id}:
+    get:
+      tags:
+      - valor_atributo_documento
+      description: get TipoDocumento by id
+      operationId: TipoDocumentoController.Get One
+      parameters:
+      - in: path
+        name: id
+        description: The key for staticblock
+        required: true
+        type: string
+      responses:
+        "200":
+          description: ""
+          schema:
+            $ref: '#/definitions/models.TipoDocumento'
+        "403":
+          description: :id is empty
+    put:
+      tags:
+      - valor_atributo_documento
+      description: update the TipoDocumento
+      operationId: TipoDocumentoController.Put
+      parameters:
+      - in: path
+        name: id
+        description: The id you want to update
+        required: true
+        type: string
+      - in: body
+        name: body
+        description: body for TipoDocumento content
+        required: true
+        schema:
+          $ref: '#/definitions/models.TipoDocumento'
+      responses:
+        "200":
+          description: ""
+          schema:
+            $ref: '#/definitions/models.TipoDocumento'
+        "403":
+          description: :id is not int
+    delete:
+      tags:
+      - valor_atributo_documento
+      description: delete the TipoDocumento
+      operationId: TipoDocumentoController.Delete
+      parameters:
+      - in: path
+        name: id
+        description: The id you want to delete
+        required: true
+        type: string
+      responses:
+        "200":
+          description: '{string} delete success!'
+        "403":
+          description: id is empty
+  /banco/:
+    get:
+      tags:
+      - banco
+      description: get Banco
+      operationId: BancoController.Get All
+      parameters:
+      - in: query
+        name: query
+        description: Filter. e.g. col1:v1,col2:v2 ...
+        type: string
+      - in: query
+        name: fields
+        description: Fields returned. e.g. col1,col2 ...
+        type: string
+      - in: query
+        name: sortby
+        description: Sorted-by fields. e.g. col1,col2 ...
+        type: string
+      - in: query
+        name: order
+        description: Order corresponding to each sortby field, if single value, apply
+          to all sortby fields. e.g. desc,asc ...
+        type: string
+      - in: query
+        name: limit
+        description: Limit the size of result set. Must be an integer
+        type: string
+      - in: query
+        name: offset
+        description: Start position of result set. Must be an integer
+        type: string
+      responses:
+        "200":
+          description: ""
+          schema:
+            $ref: '#/definitions/models.Banco'
+        "403":
+          description: ""
+    post:
+      tags:
+      - banco
+      description: create Banco
+      operationId: BancoController.Post
+      parameters:
+      - in: body
+        name: body
+        description: body for Banco content
+        required: true
+        schema:
+          $ref: '#/definitions/models.Banco'
+      responses:
+        "201":
+          description: '{int} models.Banco'
+        "403":
+          description: body is empty
+  /banco/{id}:
+    get:
+      tags:
+      - banco
+      description: get Banco by id
+      operationId: BancoController.Get One
+      parameters:
+      - in: path
+        name: id
+        description: The key for staticblock
+        required: true
+        type: string
+      responses:
+        "200":
+          description: ""
+          schema:
+            $ref: '#/definitions/models.Banco'
+        "403":
+          description: :id is empty
+    put:
+      tags:
+      - banco
+      description: update the Banco
+      operationId: BancoController.Put
+      parameters:
+      - in: path
+        name: id
+        description: The id you want to update
+        required: true
+        type: string
+      - in: body
+        name: body
+        description: body for Banco content
+        required: true
+        schema:
+          $ref: '#/definitions/models.Banco'
+      responses:
+        "200":
+          description: ""
+          schema:
+            $ref: '#/definitions/models.Banco'
+        "403":
+          description: :id is not int
+    delete:
+      tags:
+      - banco
+      description: delete the Banco
+      operationId: BancoController.Delete
+      parameters:
+      - in: path
+        name: id
+        description: The id you want to delete
+        required: true
+        type: string
+      responses:
+        "200":
+          description: '{string} delete success!'
+        "403":
+          description: id is empty
+  /ciiu_clase/:
+    get:
+      tags:
+      - ciiu_clase
+      description: get CiiuClase
+      operationId: CiiuClaseController.Get All
+      parameters:
+      - in: query
+        name: query
+        description: Filter. e.g. col1:v1,col2:v2 ...
+        type: string
+      - in: query
+        name: fields
+        description: Fields returned. e.g. col1,col2 ...
+        type: string
+      - in: query
+        name: sortby
+        description: Sorted-by fields. e.g. col1,col2 ...
+        type: string
+      - in: query
+        name: order
+        description: Order corresponding to each sortby field, if single value, apply
+          to all sortby fields. e.g. desc,asc ...
+        type: string
+      - in: query
+        name: limit
+        description: Limit the size of result set. Must be an integer
+        type: string
+      - in: query
+        name: offset
+        description: Start position of result set. Must be an integer
+        type: string
+      responses:
+        "200":
+          description: ""
+          schema:
+            $ref: '#/definitions/models.CiiuClase'
+        "403":
+          description: ""
+    post:
+      tags:
+      - ciiu_clase
+      description: create CiiuClase
+      operationId: CiiuClaseController.Post
+      parameters:
+      - in: body
+        name: body
+        description: body for CiiuClase content
+        required: true
+        schema:
+          $ref: '#/definitions/models.CiiuClase'
+      responses:
+        "201":
+          description: '{int} models.CiiuClase'
+        "403":
+          description: body is empty
+  /ciiu_clase/{id}:
+    get:
+      tags:
+      - ciiu_clase
+      description: get CiiuClase by id
+      operationId: CiiuClaseController.Get One
+      parameters:
+      - in: path
+        name: id
+        description: The key for staticblock
+        required: true
+        type: string
+      responses:
+        "200":
+          description: ""
+          schema:
+            $ref: '#/definitions/models.CiiuClase'
+        "403":
+          description: :id is empty
+    put:
+      tags:
+      - ciiu_clase
+      description: update the CiiuClase
+      operationId: CiiuClaseController.Put
+      parameters:
+      - in: path
+        name: id
+        description: The id you want to update
+        required: true
+        type: string
+      - in: body
+        name: body
+        description: body for CiiuClase content
+        required: true
+        schema:
+          $ref: '#/definitions/models.CiiuClase'
+      responses:
+        "200":
+          description: ""
+          schema:
+            $ref: '#/definitions/models.CiiuClase'
+        "403":
+          description: :id is not int
+    delete:
+      tags:
+      - ciiu_clase
+      description: delete the CiiuClase
+      operationId: CiiuClaseController.Delete
+      parameters:
+      - in: path
+        name: id
+        description: The id you want to delete
+        required: true
+        type: string
+      responses:
+        "200":
+          description: '{string} delete success!'
+        "403":
+          description: id is empty
+  /ciiu_division/:
+    get:
+      tags:
+      - ciiu_division
+      description: get CiiuDivision
+      operationId: CiiuDivisionController.Get All
+      parameters:
+      - in: query
+        name: query
+        description: Filter. e.g. col1:v1,col2:v2 ...
+        type: string
+      - in: query
+        name: fields
+        description: Fields returned. e.g. col1,col2 ...
+        type: string
+      - in: query
+        name: sortby
+        description: Sorted-by fields. e.g. col1,col2 ...
+        type: string
+      - in: query
+        name: order
+        description: Order corresponding to each sortby field, if single value, apply
+          to all sortby fields. e.g. desc,asc ...
+        type: string
+      - in: query
+        name: limit
+        description: Limit the size of result set. Must be an integer
+        type: string
+      - in: query
+        name: offset
+        description: Start position of result set. Must be an integer
+        type: string
+      responses:
+        "200":
+          description: ""
+          schema:
+            $ref: '#/definitions/models.CiiuDivision'
+        "403":
+          description: ""
+    post:
+      tags:
+      - ciiu_division
+      description: create CiiuDivision
+      operationId: CiiuDivisionController.Post
+      parameters:
+      - in: body
+        name: body
+        description: body for CiiuDivision content
+        required: true
+        schema:
+          $ref: '#/definitions/models.CiiuDivision'
+      responses:
+        "201":
+          description: '{int} models.CiiuDivision'
+        "403":
+          description: body is empty
+  /ciiu_division/{id}:
+    get:
+      tags:
+      - ciiu_division
+      description: get CiiuDivision by id
+      operationId: CiiuDivisionController.Get One
+      parameters:
+      - in: path
+        name: id
+        description: The key for staticblock
+        required: true
+        type: string
+      responses:
+        "200":
+          description: ""
+          schema:
+            $ref: '#/definitions/models.CiiuDivision'
+        "403":
+          description: :id is empty
+    put:
+      tags:
+      - ciiu_division
+      description: update the CiiuDivision
+      operationId: CiiuDivisionController.Put
+      parameters:
+      - in: path
+        name: id
+        description: The id you want to update
+        required: true
+        type: string
+      - in: body
+        name: body
+        description: body for CiiuDivision content
+        required: true
+        schema:
+          $ref: '#/definitions/models.CiiuDivision'
+      responses:
+        "200":
+          description: ""
+          schema:
+            $ref: '#/definitions/models.CiiuDivision'
+        "403":
+          description: :id is not int
+    delete:
+      tags:
+      - ciiu_division
+      description: delete the CiiuDivision
+      operationId: CiiuDivisionController.Delete
+      parameters:
+      - in: path
+        name: id
+        description: The id you want to delete
+        required: true
+        type: string
+      responses:
+        "200":
+          description: '{string} delete success!'
+        "403":
+          description: id is empty
+  /ciiu_subclase/:
+    get:
+      tags:
+      - ciiu_subclase
+      description: get CiiuSubclase
+      operationId: CiiuSubclaseController.Get All
+      parameters:
+      - in: query
+        name: query
+        description: Filter. e.g. col1:v1,col2:v2 ...
+        type: string
+      - in: query
+        name: fields
+        description: Fields returned. e.g. col1,col2 ...
+        type: string
+      - in: query
+        name: sortby
+        description: Sorted-by fields. e.g. col1,col2 ...
+        type: string
+      - in: query
+        name: order
+        description: Order corresponding to each sortby field, if single value, apply
+          to all sortby fields. e.g. desc,asc ...
+        type: string
+      - in: query
+        name: limit
+        description: Limit the size of result set. Must be an integer
+        type: string
+      - in: query
+        name: offset
+        description: Start position of result set. Must be an integer
+        type: string
+      responses:
+        "200":
+          description: ""
+          schema:
+            $ref: '#/definitions/models.CiiuSubclase'
+        "403":
+          description: ""
+    post:
+      tags:
+      - ciiu_subclase
+      description: create CiiuSubclase
+      operationId: CiiuSubclaseController.Post
+      parameters:
+      - in: body
+        name: body
+        description: body for CiiuSubclase content
+        required: true
+        schema:
+          $ref: '#/definitions/models.CiiuSubclase'
+      responses:
+        "201":
+          description: '{int} models.CiiuSubclase'
+        "403":
+          description: body is empty
+  /ciiu_subclase/{id}:
+    get:
+      tags:
+      - ciiu_subclase
+      description: get CiiuSubclase by id
+      operationId: CiiuSubclaseController.Get One
+      parameters:
+      - in: path
+        name: id
+        description: The key for staticblock
+        required: true
+        type: string
+      responses:
+        "200":
+          description: ""
+          schema:
+            $ref: '#/definitions/models.CiiuSubclase'
+        "403":
+          description: :id is empty
+    put:
+      tags:
+      - ciiu_subclase
+      description: update the CiiuSubclase
+      operationId: CiiuSubclaseController.Put
+      parameters:
+      - in: path
+        name: id
+        description: The id you want to update
+        required: true
+        type: string
+      - in: body
+        name: body
+        description: body for CiiuSubclase content
+        required: true
+        schema:
+          $ref: '#/definitions/models.CiiuSubclase'
+      responses:
+        "200":
+          description: ""
+          schema:
+            $ref: '#/definitions/models.CiiuSubclase'
+        "403":
+          description: :id is not int
+    delete:
+      tags:
+      - ciiu_subclase
+      description: delete the CiiuSubclase
+      operationId: CiiuSubclaseController.Delete
+      parameters:
+      - in: path
+        name: id
+        description: The id you want to delete
+        required: true
+        type: string
+      responses:
+        "200":
+          description: '{string} delete success!'
+        "403":
+          description: id is empty
+  /ciiu_tipo/:
+    get:
+      tags:
+      - ciiu_tipo
+      description: get CiiuTipo
+      operationId: CiiuTipoController.Get All
+      parameters:
+      - in: query
+        name: query
+        description: Filter. e.g. col1:v1,col2:v2 ...
+        type: string
+      - in: query
+        name: fields
+        description: Fields returned. e.g. col1,col2 ...
+        type: string
+      - in: query
+        name: sortby
+        description: Sorted-by fields. e.g. col1,col2 ...
+        type: string
+      - in: query
+        name: order
+        description: Order corresponding to each sortby field, if single value, apply
+          to all sortby fields. e.g. desc,asc ...
+        type: string
+      - in: query
+        name: limit
+        description: Limit the size of result set. Must be an integer
+        type: string
+      - in: query
+        name: offset
+        description: Start position of result set. Must be an integer
+        type: string
+      responses:
+        "200":
+          description: ""
+          schema:
+            $ref: '#/definitions/models.CiiuTipo'
+        "403":
+          description: ""
+    post:
+      tags:
+      - ciiu_tipo
+      description: create CiiuTipo
+      operationId: CiiuTipoController.Post
+      parameters:
+      - in: body
+        name: body
+        description: body for CiiuTipo content
+        required: true
+        schema:
+          $ref: '#/definitions/models.CiiuTipo'
+      responses:
+        "201":
+          description: '{int} models.CiiuTipo'
+        "403":
+          description: body is empty
+  /ciiu_tipo/{id}:
+    get:
+      tags:
+      - ciiu_tipo
+      description: get CiiuTipo by id
+      operationId: CiiuTipoController.Get One
+      parameters:
+      - in: path
+        name: id
+        description: The key for staticblock
+        required: true
+        type: string
+      responses:
+        "200":
+          description: ""
+          schema:
+            $ref: '#/definitions/models.CiiuTipo'
+        "403":
+          description: :id is empty
+    put:
+      tags:
+      - ciiu_tipo
+      description: update the CiiuTipo
+      operationId: CiiuTipoController.Put
+      parameters:
+      - in: path
+        name: id
+        description: The id you want to update
+        required: true
+        type: string
+      - in: body
+        name: body
+        description: body for CiiuTipo content
+        required: true
+        schema:
+          $ref: '#/definitions/models.CiiuTipo'
+      responses:
+        "200":
+          description: ""
+          schema:
+            $ref: '#/definitions/models.CiiuTipo'
+        "403":
+          description: :id is not int
+    delete:
+      tags:
+      - ciiu_tipo
+      description: delete the CiiuTipo
+      operationId: CiiuTipoController.Delete
+      parameters:
+      - in: path
+        name: id
+        description: The id you want to delete
+        required: true
+        type: string
+      responses:
+        "200":
+          description: '{string} delete success!'
+        "403":
+          description: id is empty
+  /documento/:
+    get:
+      tags:
+      - valor_atributo_documento
+      description: get TipoDocumento
+      operationId: TipoDocumentoController.Get All
+      parameters:
+      - in: query
+        name: query
+        description: Filter. e.g. col1:v1,col2:v2 ...
+        type: string
+      - in: query
+        name: fields
+        description: Fields returned. e.g. col1,col2 ...
+        type: string
+      - in: query
+        name: sortby
+        description: Sorted-by fields. e.g. col1,col2 ...
+        type: string
+      - in: query
+        name: order
+        description: Order corresponding to each sortby field, if single value, apply
+          to all sortby fields. e.g. desc,asc ...
+        type: string
+      - in: query
+        name: limit
+        description: Limit the size of result set. Must be an integer
+        type: string
+      - in: query
+        name: offset
+        description: Start position of result set. Must be an integer
+        type: string
+      responses:
+        "200":
+          description: ""
+          schema:
+            $ref: '#/definitions/models.TipoDocumento'
+        "403":
+          description: ""
+    post:
+      tags:
+      - valor_atributo_documento
+      description: create TipoDocumento
+      operationId: TipoDocumentoController.Post
+      parameters:
+      - in: body
+        name: body
+        description: body for TipoDocumento content
+        required: true
+        schema:
+          $ref: '#/definitions/models.TipoDocumento'
+      responses:
+        "201":
+          description: '{int} models.TipoDocumento'
+        "403":
+          description: body is empty
+  /documento/{id}:
+    get:
+      tags:
+      - valor_atributo_documento
+      description: get TipoDocumento by id
+      operationId: TipoDocumentoController.Get One
+      parameters:
+      - in: path
+        name: id
+        description: The key for staticblock
+        required: true
+        type: string
+      responses:
+        "200":
+          description: ""
+          schema:
+            $ref: '#/definitions/models.TipoDocumento'
+        "403":
+          description: :id is empty
+    put:
+      tags:
+      - valor_atributo_documento
+      description: update the TipoDocumento
+      operationId: TipoDocumentoController.Put
+      parameters:
+      - in: path
+        name: id
+        description: The id you want to update
+        required: true
+        type: string
+      - in: body
+        name: body
+        description: body for TipoDocumento content
+        required: true
+        schema:
+          $ref: '#/definitions/models.TipoDocumento'
+      responses:
+        "200":
+          description: ""
+          schema:
+            $ref: '#/definitions/models.TipoDocumento'
+        "403":
+          description: :id is not int
+    delete:
+      tags:
+      - valor_atributo_documento
+      description: delete the TipoDocumento
+      operationId: TipoDocumentoController.Delete
+      parameters:
+      - in: path
+        name: id
+        description: The id you want to delete
+        required: true
+        type: string
+      responses:
+        "200":
+          description: '{string} delete success!'
+        "403":
+          description: id is empty
+  /jefe_dependencia/:
+    get:
+      tags:
+      - jefe_dependencia
+      description: get JefeDependencia
+      operationId: JefeDependenciaController.Get All
+      parameters:
+      - in: query
+        name: query
+        description: Filter. e.g. col1:v1,col2:v2 ...
+        type: string
+      - in: query
+        name: fields
+        description: Fields returned. e.g. col1,col2 ...
+        type: string
+      - in: query
+        name: sortby
+        description: Sorted-by fields. e.g. col1,col2 ...
+        type: string
+      - in: query
+        name: order
+        description: Order corresponding to each sortby field, if single value, apply
+          to all sortby fields. e.g. desc,asc ...
+        type: string
+      - in: query
+        name: limit
+        description: Limit the size of result set. Must be an integer
+        type: string
+      - in: query
+        name: offset
+        description: Start position of result set. Must be an integer
+        type: string
+      responses:
+        "200":
+          description: ""
+          schema:
+            $ref: '#/definitions/models.JefeDependencia'
+        "403":
+          description: ""
+    post:
+      tags:
+      - jefe_dependencia
+      description: create JefeDependencia
+      operationId: JefeDependenciaController.Post
+      parameters:
+      - in: body
+        name: body
+        description: body for JefeDependencia content
+        required: true
+        schema:
+          $ref: '#/definitions/models.JefeDependencia'
+      responses:
+        "201":
+          description: '{int} models.JefeDependencia'
+        "403":
+          description: body is empty
+  /jefe_dependencia/{id}:
+    get:
+      tags:
+      - jefe_dependencia
+      description: get JefeDependencia by id
+      operationId: JefeDependenciaController.Get One
+      parameters:
+      - in: path
+        name: id
+        description: The key for staticblock
+        required: true
+        type: string
+      responses:
+        "200":
+          description: ""
+          schema:
+            $ref: '#/definitions/models.JefeDependencia'
+        "403":
+          description: :id is empty
+    put:
+      tags:
+      - jefe_dependencia
+      description: update the JefeDependencia
+      operationId: JefeDependenciaController.Put
+      parameters:
+      - in: path
+        name: id
+        description: The id you want to update
+        required: true
+        type: string
+      - in: body
+        name: body
+        description: body for JefeDependencia content
+        required: true
+        schema:
+          $ref: '#/definitions/models.JefeDependencia'
+      responses:
+        "200":
+          description: ""
+          schema:
+            $ref: '#/definitions/models.JefeDependencia'
+        "403":
+          description: :id is not int
+    delete:
+      tags:
+      - jefe_dependencia
+      description: delete the JefeDependencia
+      operationId: JefeDependenciaController.Delete
+      parameters:
+      - in: path
+        name: id
+        description: The id you want to delete
+        required: true
+        type: string
+      responses:
+        "200":
+          description: '{string} delete success!'
+        "403":
+          description: id is empty
+  /ordenador_gasto/:
+    get:
+      tags:
+      - ordenador_gasto
+      description: get OrdenadorGasto
+      operationId: OrdenadorGastoController.Get All
+      parameters:
+      - in: query
+        name: query
+        description: Filter. e.g. col1:v1,col2:v2 ...
+        type: string
+      - in: query
+        name: fields
+        description: Fields returned. e.g. col1,col2 ...
+        type: string
+      - in: query
+        name: sortby
+        description: Sorted-by fields. e.g. col1,col2 ...
+        type: string
+      - in: query
+        name: order
+        description: Order corresponding to each sortby field, if single value, apply
+          to all sortby fields. e.g. desc,asc ...
+        type: string
+      - in: query
+        name: limit
+        description: Limit the size of result set. Must be an integer
+        type: string
+      - in: query
+        name: offset
+        description: Start position of result set. Must be an integer
+        type: string
+      responses:
+        "200":
+          description: ""
+          schema:
+            $ref: '#/definitions/models.OrdenadorGasto'
+        "403":
+          description: ""
+    post:
+      tags:
+      - ordenador_gasto
+      description: create OrdenadorGasto
+      operationId: OrdenadorGastoController.Post
+      parameters:
+      - in: body
+        name: body
+        description: body for OrdenadorGasto content
+        required: true
+        schema:
+          $ref: '#/definitions/models.OrdenadorGasto'
+      responses:
+        "201":
+          description: '{int} models.OrdenadorGasto'
+        "403":
+          description: body is empty
+  /ordenador_gasto/{id}:
+    get:
+      tags:
+      - ordenador_gasto
+      description: get OrdenadorGasto by id
+      operationId: OrdenadorGastoController.Get One
+      parameters:
+      - in: path
+        name: id
+        description: The key for staticblock
+        required: true
+        type: string
+      responses:
+        "200":
+          description: ""
+          schema:
+            $ref: '#/definitions/models.OrdenadorGasto'
+        "403":
+          description: :id is empty
+    put:
+      tags:
+      - ordenador_gasto
+      description: update the OrdenadorGasto
+      operationId: OrdenadorGastoController.Put
+      parameters:
+      - in: path
+        name: id
+        description: The id you want to update
+        required: true
+        type: string
+      - in: body
+        name: body
+        description: body for OrdenadorGasto content
+        required: true
+        schema:
+          $ref: '#/definitions/models.OrdenadorGasto'
+      responses:
+        "200":
+          description: ""
+          schema:
+            $ref: '#/definitions/models.OrdenadorGasto'
+        "403":
+          description: :id is not int
+    delete:
+      tags:
+      - ordenador_gasto
+      description: delete the OrdenadorGasto
+      operationId: OrdenadorGastoController.Delete
+      parameters:
+      - in: path
+        name: id
+        description: The id you want to delete
+        required: true
+        type: string
+      responses:
+        "200":
+          description: '{string} delete success!'
+        "403":
+          description: id is empty
+  /punto_salarial/:
+    get:
+      tags:
+      - punto_salarial
+      description: get PuntoSalarial
+      operationId: PuntoSalarialController.Get All
+      parameters:
+      - in: query
+        name: query
+        description: Filter. e.g. col1:v1,col2:v2 ...
+        type: string
+      - in: query
+        name: fields
+        description: Fields returned. e.g. col1,col2 ...
+        type: string
+      - in: query
+        name: sortby
+        description: Sorted-by fields. e.g. col1,col2 ...
+        type: string
+      - in: query
+        name: order
+        description: Order corresponding to each sortby field, if single value, apply
+          to all sortby fields. e.g. desc,asc ...
+        type: string
+      - in: query
+        name: limit
+        description: Limit the size of result set. Must be an integer
+        type: string
+      - in: query
+        name: offset
+        description: Start position of result set. Must be an integer
+        type: string
+      responses:
+        "200":
+          description: ""
+          schema:
+            $ref: '#/definitions/models.PuntoSalarial'
+        "403":
+          description: ""
+    post:
+      tags:
+      - punto_salarial
+      description: create PuntoSalarial
+      operationId: PuntoSalarialController.Post
+      parameters:
+      - in: body
+        name: body
+        description: body for PuntoSalarial content
+        required: true
+        schema:
+          $ref: '#/definitions/models.PuntoSalarial'
+      responses:
+        "201":
+          description: '{int} models.PuntoSalarial'
+        "403":
+          description: body is empty
+  /punto_salarial/{id}:
+    get:
+      tags:
+      - punto_salarial
+      description: get PuntoSalarial by id
+      operationId: PuntoSalarialController.Get One
+      parameters:
+      - in: path
+        name: id
+        description: The key for staticblock
+        required: true
+        type: string
+      responses:
+        "200":
+          description: ""
+          schema:
+            $ref: '#/definitions/models.PuntoSalarial'
+        "403":
+          description: :id is empty
+    put:
+      tags:
+      - punto_salarial
+      description: update the PuntoSalarial
+      operationId: PuntoSalarialController.Put
+      parameters:
+      - in: path
+        name: id
+        description: The id you want to update
+        required: true
+        type: string
+      - in: body
+        name: body
+        description: body for PuntoSalarial content
+        required: true
+        schema:
+          $ref: '#/definitions/models.PuntoSalarial'
+      responses:
+        "200":
+          description: ""
+          schema:
+            $ref: '#/definitions/models.PuntoSalarial'
+        "403":
+          description: :id is not int
+    delete:
+      tags:
+      - punto_salarial
+      description: delete the PuntoSalarial
+      operationId: PuntoSalarialController.Delete
+      parameters:
+      - in: path
+        name: id
+        description: The id you want to delete
+        required: true
+        type: string
+      responses:
+        "200":
+          description: '{string} delete success!'
+        "403":
+          description: id is empty
+  /rubros_dependencia/:
+    get:
+      tags:
+      - rubros_dependencia
+      description: get RubrosDependencia
+      operationId: RubrosDependenciaController.Get All
+      parameters:
+      - in: query
+        name: query
+        description: Filter. e.g. col1:v1,col2:v2 ...
+        type: string
+      - in: query
+        name: fields
+        description: Fields returned. e.g. col1,col2 ...
+        type: string
+      - in: query
+        name: sortby
+        description: Sorted-by fields. e.g. col1,col2 ...
+        type: string
+      - in: query
+        name: order
+        description: Order corresponding to each sortby field, if single value, apply
+          to all sortby fields. e.g. desc,asc ...
+        type: string
+      - in: query
+        name: limit
+        description: Limit the size of result set. Must be an integer
+        type: string
+      - in: query
+        name: offset
+        description: Start position of result set. Must be an integer
+        type: string
+      responses:
+        "200":
+          description: ""
+          schema:
+            $ref: '#/definitions/models.RubrosDependencia'
+        "403":
+          description: ""
+    post:
+      tags:
+      - rubros_dependencia
+      description: create RubrosDependencia
+      operationId: RubrosDependenciaController.Post
+      parameters:
+      - in: body
+        name: body
+        description: body for RubrosDependencia content
+        required: true
+        schema:
+          $ref: '#/definitions/models.RubrosDependencia'
+      responses:
+        "201":
+          description: '{int} models.RubrosDependencia'
+        "403":
+          description: body is empty
+  /rubros_dependencia/{id}:
+    get:
+      tags:
+      - rubros_dependencia
+      description: get RubrosDependencia by id
+      operationId: RubrosDependenciaController.Get One
+      parameters:
+      - in: path
+        name: id
+        description: The key for staticblock
+        required: true
+        type: string
+      responses:
+        "200":
+          description: ""
+          schema:
+            $ref: '#/definitions/models.RubrosDependencia'
+        "403":
+          description: :id is empty
+    put:
+      tags:
+      - rubros_dependencia
+      description: update the RubrosDependencia
+      operationId: RubrosDependenciaController.Put
+      parameters:
+      - in: path
+        name: id
+        description: The id you want to update
+        required: true
+        type: string
+      - in: body
+        name: body
+        description: body for RubrosDependencia content
+        required: true
+        schema:
+          $ref: '#/definitions/models.RubrosDependencia'
+      responses:
+        "200":
+          description: ""
+          schema:
+            $ref: '#/definitions/models.RubrosDependencia'
+        "403":
+          description: :id is not int
+    delete:
+      tags:
+      - rubros_dependencia
+      description: delete the RubrosDependencia
+      operationId: RubrosDependenciaController.Delete
+      parameters:
+      - in: path
+        name: id
+        description: The id you want to delete
+        required: true
+        type: string
+      responses:
+        "200":
+          description: '{string} delete success!'
+        "403":
+          description: id is empty
+  /rubros_ordenador/:
+    get:
+      tags:
+      - rubros_ordenador
+      description: get RubrosOrdenador
+      operationId: RubrosOrdenadorController.Get All
+      parameters:
+      - in: query
+        name: query
+        description: Filter. e.g. col1:v1,col2:v2 ...
+        type: string
+      - in: query
+        name: fields
+        description: Fields returned. e.g. col1,col2 ...
+        type: string
+      - in: query
+        name: sortby
+        description: Sorted-by fields. e.g. col1,col2 ...
+        type: string
+      - in: query
+        name: order
+        description: Order corresponding to each sortby field, if single value, apply
+          to all sortby fields. e.g. desc,asc ...
+        type: string
+      - in: query
+        name: limit
+        description: Limit the size of result set. Must be an integer
+        type: string
+      - in: query
+        name: offset
+        description: Start position of result set. Must be an integer
+        type: string
+      responses:
+        "200":
+          description: ""
+          schema:
+            $ref: '#/definitions/models.RubrosOrdenador'
+        "403":
+          description: ""
+    post:
+      tags:
+      - rubros_ordenador
+      description: create RubrosOrdenador
+      operationId: RubrosOrdenadorController.Post
+      parameters:
+      - in: body
+        name: body
+        description: body for RubrosOrdenador content
+        required: true
+        schema:
+          $ref: '#/definitions/models.RubrosOrdenador'
+      responses:
+        "201":
+          description: '{int} models.RubrosOrdenador'
+        "403":
+          description: body is empty
+  /rubros_ordenador/{id}:
+    get:
+      tags:
+      - rubros_ordenador
+      description: get RubrosOrdenador by id
+      operationId: RubrosOrdenadorController.Get One
+      parameters:
+      - in: path
+        name: id
+        description: The key for staticblock
+        required: true
+        type: string
+      responses:
+        "200":
+          description: ""
+          schema:
+            $ref: '#/definitions/models.RubrosOrdenador'
+        "403":
+          description: :id is empty
+    put:
+      tags:
+      - rubros_ordenador
+      description: update the RubrosOrdenador
+      operationId: RubrosOrdenadorController.Put
+      parameters:
+      - in: path
+        name: id
+        description: The id you want to update
+        required: true
+        type: string
+      - in: body
+        name: body
+        description: body for RubrosOrdenador content
+        required: true
+        schema:
+          $ref: '#/definitions/models.RubrosOrdenador'
+      responses:
+        "200":
+          description: ""
+          schema:
+            $ref: '#/definitions/models.RubrosOrdenador'
+        "403":
+          description: :id is not int
+    delete:
+      tags:
+      - rubros_ordenador
+      description: delete the RubrosOrdenador
+      operationId: RubrosOrdenadorController.Delete
+      parameters:
+      - in: path
+        name: id
+        description: The id you want to delete
+        required: true
+        type: string
+      responses:
+        "200":
+          description: '{string} delete success!'
+        "403":
+          description: id is empty
+  /salario_minimo/:
+    get:
+      tags:
+      - salario_minimo
+      description: get SalarioMinimo
+      operationId: SalarioMinimoController.Get All
+      parameters:
+      - in: query
+        name: query
+        description: Filter. e.g. col1:v1,col2:v2 ...
+        type: string
+      - in: query
+        name: fields
+        description: Fields returned. e.g. col1,col2 ...
+        type: string
+      - in: query
+        name: sortby
+        description: Sorted-by fields. e.g. col1,col2 ...
+        type: string
+      - in: query
+        name: order
+        description: Order corresponding to each sortby field, if single value, apply
+          to all sortby fields. e.g. desc,asc ...
+        type: string
+      - in: query
+        name: limit
+        description: Limit the size of result set. Must be an integer
+        type: string
+      - in: query
+        name: offset
+        description: Start position of result set. Must be an integer
+        type: string
+      responses:
+        "200":
+          description: ""
+          schema:
+            $ref: '#/definitions/models.SalarioMinimo'
+        "403":
+          description: ""
+    post:
+      tags:
+      - salario_minimo
+      description: create SalarioMinimo
+      operationId: SalarioMinimoController.Post
+      parameters:
+      - in: body
+        name: body
+        description: body for SalarioMinimo content
+        required: true
+        schema:
+          $ref: '#/definitions/models.SalarioMinimo'
+      responses:
+        "201":
+          description: '{int} models.SalarioMinimo'
+        "403":
+          description: body is empty
+  /salario_minimo/{id}:
+    get:
+      tags:
+      - salario_minimo
+      description: get SalarioMinimo by id
+      operationId: SalarioMinimoController.Get One
+      parameters:
+      - in: path
+        name: id
+        description: The key for staticblock
+        required: true
+        type: string
+      responses:
+        "200":
+          description: ""
+          schema:
+            $ref: '#/definitions/models.SalarioMinimo'
+        "403":
+          description: :id is empty
+    put:
+      tags:
+      - salario_minimo
+      description: update the SalarioMinimo
+      operationId: SalarioMinimoController.Put
+      parameters:
+      - in: path
+        name: id
+        description: The id you want to update
+        required: true
+        type: string
+      - in: body
+        name: body
+        description: body for SalarioMinimo content
+        required: true
+        schema:
+          $ref: '#/definitions/models.SalarioMinimo'
+      responses:
+        "200":
+          description: ""
+          schema:
+            $ref: '#/definitions/models.SalarioMinimo'
+        "403":
+          description: :id is not int
+    delete:
+      tags:
+      - salario_minimo
+      description: delete the SalarioMinimo
+      operationId: SalarioMinimoController.Delete
+      parameters:
+      - in: path
+        name: id
+        description: The id you want to delete
+        required: true
+        type: string
+      responses:
+        "200":
+          description: '{string} delete success!'
+        "403":
+          description: id is empty
+  /snies_area/:
+    get:
+      tags:
+      - snies_area
+      description: get SniesArea
+      operationId: SniesAreaController.Get All
+      parameters:
+      - in: query
+        name: query
+        description: Filter. e.g. col1:v1,col2:v2 ...
+        type: string
+      - in: query
+        name: fields
+        description: Fields returned. e.g. col1,col2 ...
+        type: string
+      - in: query
+        name: sortby
+        description: Sorted-by fields. e.g. col1,col2 ...
+        type: string
+      - in: query
+        name: order
+        description: Order corresponding to each sortby field, if single value, apply
+          to all sortby fields. e.g. desc,asc ...
+        type: string
+      - in: query
+        name: limit
+        description: Limit the size of result set. Must be an integer
+        type: string
+      - in: query
+        name: offset
+        description: Start position of result set. Must be an integer
+        type: string
+      responses:
+        "200":
+          description: ""
+          schema:
+            $ref: '#/definitions/models.SniesArea'
+        "403":
+          description: ""
+    post:
+      tags:
+      - snies_area
+      description: create SniesArea
+      operationId: SniesAreaController.Post
+      parameters:
+      - in: body
+        name: body
+        description: body for SniesArea content
+        required: true
+        schema:
+          $ref: '#/definitions/models.SniesArea'
+      responses:
+        "201":
+          description: '{int} models.SniesArea'
+        "403":
+          description: body is empty
+  /snies_area/{id}:
+    get:
+      tags:
+      - snies_area
+      description: get SniesArea by id
+      operationId: SniesAreaController.Get One
+      parameters:
+      - in: path
+        name: id
+        description: The key for staticblock
+        required: true
+        type: string
+      responses:
+        "200":
+          description: ""
+          schema:
+            $ref: '#/definitions/models.SniesArea'
+        "403":
+          description: :id is empty
+    put:
+      tags:
+      - snies_area
+      description: update the SniesArea
+      operationId: SniesAreaController.Put
+      parameters:
+      - in: path
+        name: id
+        description: The id you want to update
+        required: true
+        type: string
+      - in: body
+        name: body
+        description: body for SniesArea content
+        required: true
+        schema:
+          $ref: '#/definitions/models.SniesArea'
+      responses:
+        "200":
+          description: ""
+          schema:
+            $ref: '#/definitions/models.SniesArea'
+        "403":
+          description: :id is not int
+    delete:
+      tags:
+      - snies_area
+      description: delete the SniesArea
+      operationId: SniesAreaController.Delete
+      parameters:
+      - in: path
+        name: id
+        description: The id you want to delete
+        required: true
+        type: string
+      responses:
+        "200":
+          description: '{string} delete success!'
+        "403":
+          description: id is empty
+  /snies_nucleo_basico/:
+    get:
+      tags:
+      - snies_nucleo_basico
+      description: get SniesNucleoBasico
+      operationId: SniesNucleoBasicoController.Get All
+      parameters:
+      - in: query
+        name: query
+        description: Filter. e.g. col1:v1,col2:v2 ...
+        type: string
+      - in: query
+        name: fields
+        description: Fields returned. e.g. col1,col2 ...
+        type: string
+      - in: query
+        name: sortby
+        description: Sorted-by fields. e.g. col1,col2 ...
+        type: string
+      - in: query
+        name: order
+        description: Order corresponding to each sortby field, if single value, apply
+          to all sortby fields. e.g. desc,asc ...
+        type: string
+      - in: query
+        name: limit
+        description: Limit the size of result set. Must be an integer
+        type: string
+      - in: query
+        name: offset
+        description: Start position of result set. Must be an integer
+        type: string
+      responses:
+        "200":
+          description: ""
+          schema:
+            $ref: '#/definitions/models.SniesNucleoBasico'
+        "403":
+          description: ""
+    post:
+      tags:
+      - snies_nucleo_basico
+      description: create SniesNucleoBasico
+      operationId: SniesNucleoBasicoController.Post
+      parameters:
+      - in: body
+        name: body
+        description: body for SniesNucleoBasico content
+        required: true
+        schema:
+          $ref: '#/definitions/models.SniesNucleoBasico'
+      responses:
+        "201":
+          description: '{int} models.SniesNucleoBasico'
+        "403":
+          description: body is empty
+  /snies_nucleo_basico/{id}:
+    get:
+      tags:
+      - snies_nucleo_basico
+      description: get SniesNucleoBasico by id
+      operationId: SniesNucleoBasicoController.Get One
+      parameters:
+      - in: path
+        name: id
+        description: The key for staticblock
+        required: true
+        type: string
+      responses:
+        "200":
+          description: ""
+          schema:
+            $ref: '#/definitions/models.SniesNucleoBasico'
+        "403":
+          description: :id is empty
+    put:
+      tags:
+      - snies_nucleo_basico
+      description: update the SniesNucleoBasico
+      operationId: SniesNucleoBasicoController.Put
+      parameters:
+      - in: path
+        name: id
+        description: The id you want to update
+        required: true
+        type: string
+      - in: body
+        name: body
+        description: body for SniesNucleoBasico content
+        required: true
+        schema:
+          $ref: '#/definitions/models.SniesNucleoBasico'
+      responses:
+        "200":
+          description: ""
+          schema:
+            $ref: '#/definitions/models.SniesNucleoBasico'
+        "403":
+          description: :id is not int
+    delete:
+      tags:
+      - snies_nucleo_basico
+      description: delete the SniesNucleoBasico
+      operationId: SniesNucleoBasicoController.Delete
+      parameters:
+      - in: path
+        name: id
+        description: The id you want to delete
+        required: true
+        type: string
+      responses:
+        "200":
+          description: '{string} delete success!'
+        "403":
+          description: id is empty
+  /sucursal/:
+    get:
+      tags:
+      - sucursal
+      description: get Sucursal
+      operationId: SucursalController.Get All
+      parameters:
+      - in: query
+        name: query
+        description: Filter. e.g. col1:v1,col2:v2 ...
+        type: string
+      - in: query
+        name: fields
+        description: Fields returned. e.g. col1,col2 ...
+        type: string
+      - in: query
+        name: sortby
+        description: Sorted-by fields. e.g. col1,col2 ...
+        type: string
+      - in: query
+        name: order
+        description: Order corresponding to each sortby field, if single value, apply
+          to all sortby fields. e.g. desc,asc ...
+        type: string
+      - in: query
+        name: limit
+        description: Limit the size of result set. Must be an integer
+        type: string
+      - in: query
+        name: offset
+        description: Start position of result set. Must be an integer
+        type: string
+      responses:
+        "200":
+          description: ""
+          schema:
+            $ref: '#/definitions/models.Sucursal'
+        "403":
+          description: ""
+    post:
+      tags:
+      - sucursal
+      description: create Sucursal
+      operationId: SucursalController.Post
+      parameters:
+      - in: body
+        name: body
+        description: body for Sucursal content
+        required: true
+        schema:
+          $ref: '#/definitions/models.Sucursal'
+      responses:
+        "201":
+          description: '{int} models.Sucursal'
+        "403":
+          description: body is empty
+  /sucursal/{id}:
+    get:
+      tags:
+      - sucursal
+      description: get Sucursal by id
+      operationId: SucursalController.Get One
+      parameters:
+      - in: path
+        name: id
+        description: The key for staticblock
+        required: true
+        type: string
+      responses:
+        "200":
+          description: ""
+          schema:
+            $ref: '#/definitions/models.Sucursal'
+        "403":
+          description: :id is empty
+    put:
+      tags:
+      - sucursal
+      description: update the Sucursal
+      operationId: SucursalController.Put
+      parameters:
+      - in: path
+        name: id
+        description: The id you want to update
+        required: true
+        type: string
+      - in: body
+        name: body
+        description: body for Sucursal content
+        required: true
+        schema:
+          $ref: '#/definitions/models.Sucursal'
+      responses:
+        "200":
+          description: ""
+          schema:
+            $ref: '#/definitions/models.Sucursal'
+        "403":
+          description: :id is not int
+    delete:
+      tags:
+      - sucursal
+      description: delete the Sucursal
+      operationId: SucursalController.Delete
+      parameters:
+      - in: path
+        name: id
+        description: The id you want to delete
+        required: true
+        type: string
+      responses:
+        "200":
+          description: '{string} delete success!'
+        "403":
+          description: id is empty
+  /tipo_documento/:
+    get:
+      tags:
+      - valor_atributo_documento
+      description: get TipoDocumento
+      operationId: TipoDocumentoController.Get All
+      parameters:
+      - in: query
+        name: query
+        description: Filter. e.g. col1:v1,col2:v2 ...
+        type: string
+      - in: query
+        name: fields
+        description: Fields returned. e.g. col1,col2 ...
+        type: string
+      - in: query
+        name: sortby
+        description: Sorted-by fields. e.g. col1,col2 ...
+        type: string
+      - in: query
+        name: order
+        description: Order corresponding to each sortby field, if single value, apply
+          to all sortby fields. e.g. desc,asc ...
+        type: string
+      - in: query
+        name: limit
+        description: Limit the size of result set. Must be an integer
+        type: string
+      - in: query
+        name: offset
+        description: Start position of result set. Must be an integer
+        type: string
+      responses:
+        "200":
+          description: ""
+          schema:
+            $ref: '#/definitions/models.TipoDocumento'
+        "403":
+          description: ""
+    post:
+      tags:
+      - valor_atributo_documento
+      description: create TipoDocumento
+      operationId: TipoDocumentoController.Post
+      parameters:
+      - in: body
+        name: body
+        description: body for TipoDocumento content
+        required: true
+        schema:
+          $ref: '#/definitions/models.TipoDocumento'
+      responses:
+        "201":
+          description: '{int} models.TipoDocumento'
+        "403":
+          description: body is empty
+  /tipo_documento/{id}:
+    get:
+      tags:
+      - valor_atributo_documento
+      description: get TipoDocumento by id
+      operationId: TipoDocumentoController.Get One
+      parameters:
+      - in: path
+        name: id
+        description: The key for staticblock
+        required: true
+        type: string
+      responses:
+        "200":
+          description: ""
+          schema:
+            $ref: '#/definitions/models.TipoDocumento'
+        "403":
+          description: :id is empty
+    put:
+      tags:
+      - valor_atributo_documento
+      description: update the TipoDocumento
+      operationId: TipoDocumentoController.Put
+      parameters:
+      - in: path
+        name: id
+        description: The id you want to update
+        required: true
+        type: string
+      - in: body
+        name: body
+        description: body for TipoDocumento content
+        required: true
+        schema:
+          $ref: '#/definitions/models.TipoDocumento'
+      responses:
+        "200":
+          description: ""
+          schema:
+            $ref: '#/definitions/models.TipoDocumento'
+        "403":
+          description: :id is not int
+    delete:
+      tags:
+      - valor_atributo_documento
+      description: delete the TipoDocumento
+      operationId: TipoDocumentoController.Delete
+      parameters:
+      - in: path
+        name: id
+        description: The id you want to delete
+        required: true
+        type: string
+      responses:
+        "200":
+          description: '{string} delete success!'
+        "403":
+          description: id is empty
+  /tipo_entidad/:
+    get:
+      tags:
+      - tipo_entidad
+      description: get Tipo_entidad
+      operationId: Tipo_entidadController.Get All
+      parameters:
+      - in: query
+        name: query
+        description: Filter. e.g. col1:v1,col2:v2 ...
+        type: string
+      - in: query
+        name: fields
+        description: Fields returned. e.g. col1,col2 ...
+        type: string
+      - in: query
+        name: sortby
+        description: Sorted-by fields. e.g. col1,col2 ...
+        type: string
+      - in: query
+        name: order
+        description: Order corresponding to each sortby field, if single value, apply
+          to all sortby fields. e.g. desc,asc ...
+        type: string
+      - in: query
+        name: limit
+        description: Limit the size of result set. Must be an integer
+        type: string
+      - in: query
+        name: offset
+        description: Start position of result set. Must be an integer
+        type: string
+      responses:
+        "200":
+          description: ""
+          schema:
+            $ref: '#/definitions/models.Tipo_entidad'
+        "403":
+          description: ""
+    post:
+      tags:
+      - tipo_entidad
+      description: create Tipo_entidad
+      operationId: Tipo_entidadController.Post
+      parameters:
+      - in: body
+        name: body
+        description: body for Tipo_entidad content
+        required: true
+        schema:
+          $ref: '#/definitions/models.Tipo_entidad'
+      responses:
+        "201":
+          description: '{int} models.Tipo_entidad'
+        "403":
+          description: body is empty
+  /tipo_entidad/{id}:
+    get:
+      tags:
+      - tipo_entidad
+      description: get Tipo_entidad by id
+      operationId: Tipo_entidadController.Get One
+      parameters:
+      - in: path
+        name: id
+        description: The key for staticblock
+        required: true
+        type: string
+      responses:
+        "200":
+          description: ""
+          schema:
+            $ref: '#/definitions/models.Tipo_entidad'
+        "403":
+          description: :id is empty
+    put:
+      tags:
+      - tipo_entidad
+      description: update the Tipo_entidad
+      operationId: Tipo_entidadController.Put
+      parameters:
+      - in: path
+        name: id
+        description: The id you want to update
+        required: true
+        type: string
+      - in: body
+        name: body
+        description: body for Tipo_entidad content
+        required: true
+        schema:
+          $ref: '#/definitions/models.Tipo_entidad'
+      responses:
+        "200":
+          description: ""
+          schema:
+            $ref: '#/definitions/models.Tipo_entidad'
+        "403":
+          description: :id is not int
+    delete:
+      tags:
+      - tipo_entidad
+      description: delete the Tipo_entidad
+      operationId: Tipo_entidadController.Delete
+      parameters:
+      - in: path
+        name: id
+        description: The id you want to delete
+        required: true
+        type: string
+      responses:
+        "200":
+          description: '{string} delete success!'
+        "403":
+          description: id is empty
+  /valor_atributo_documento/:
+    get:
+      tags:
+      - valor_atributo_documento
+      description: get TipoDocumento
+      operationId: TipoDocumentoController.Get All
+      parameters:
+      - in: query
+        name: query
+        description: Filter. e.g. col1:v1,col2:v2 ...
+        type: string
+      - in: query
+        name: fields
+        description: Fields returned. e.g. col1,col2 ...
+        type: string
+      - in: query
+        name: sortby
+        description: Sorted-by fields. e.g. col1,col2 ...
+        type: string
+      - in: query
+        name: order
+        description: Order corresponding to each sortby field, if single value, apply
+          to all sortby fields. e.g. desc,asc ...
+        type: string
+      - in: query
+        name: limit
+        description: Limit the size of result set. Must be an integer
+        type: string
+      - in: query
+        name: offset
+        description: Start position of result set. Must be an integer
+        type: string
+      responses:
+        "200":
+          description: ""
+          schema:
+            $ref: '#/definitions/models.TipoDocumento'
+        "403":
+          description: ""
+    post:
+      tags:
+      - valor_atributo_documento
+      description: create TipoDocumento
+      operationId: TipoDocumentoController.Post
+      parameters:
+      - in: body
+        name: body
+        description: body for TipoDocumento content
+        required: true
+        schema:
+          $ref: '#/definitions/models.TipoDocumento'
+      responses:
+        "201":
+          description: '{int} models.TipoDocumento'
+        "403":
+          description: body is empty
+  /valor_atributo_documento/{id}:
+    get:
+      tags:
+      - valor_atributo_documento
+      description: get TipoDocumento by id
+      operationId: TipoDocumentoController.Get One
+      parameters:
+      - in: path
+        name: id
+        description: The key for staticblock
+        required: true
+        type: string
+      responses:
+        "200":
+          description: ""
+          schema:
+            $ref: '#/definitions/models.TipoDocumento'
+        "403":
+          description: :id is empty
+    put:
+      tags:
+      - valor_atributo_documento
+      description: update the TipoDocumento
+      operationId: TipoDocumentoController.Put
+      parameters:
+      - in: path
+        name: id
+        description: The id you want to update
+        required: true
+        type: string
+      - in: body
+        name: body
+        description: body for TipoDocumento content
+        required: true
+        schema:
+          $ref: '#/definitions/models.TipoDocumento'
+      responses:
+        "200":
+          description: ""
+          schema:
+            $ref: '#/definitions/models.TipoDocumento'
+        "403":
+          description: :id is not int
+    delete:
+      tags:
+      - valor_atributo_documento
+      description: delete the TipoDocumento
+      operationId: TipoDocumentoController.Delete
+      parameters:
+      - in: path
+        name: id
+        description: The id you want to delete
+        required: true
+        type: string
+      responses:
+        "200":
+          description: '{string} delete success!'
+        "403":
+          description: id is empty
+definitions:
+  models.AtributoDocumento:
+    title: AtributoDocumento
+    type: object
+    properties:
+      Activo:
+        type: boolean
+      CodigoAbreviacion:
+        type: string
+      Descripcion:
+        type: string
+      Id:
+        type: integer
+        format: int64
+      Nombre:
+        type: string
+      NumeroOrden:
+        type: number
+        format: double
+  models.Banco:
+    title: Banco
+    type: object
+    properties:
+      CodigoAch:
+        type: number
+        format: double
+      CodigoSuperintendencia:
+        type: number
+        format: double
+      DenominacionBanco:
+        type: string
+      Descripcion:
+        type: string
+      EstadoActivo:
+        type: boolean
+      Id:
+        type: integer
+        format: int64
+      Nit:
+        type: string
+      NombreBanco:
+        type: string
+  models.CiiuClase:
+    title: CiiuClase
+    type: object
+    properties:
+      Division:
+        type: string
+      Id:
+        type: string
+      Nombre:
+        type: string
+  models.CiiuDivision:
+    title: CiiuDivision
+    type: object
+    properties:
+      Id:
+        type: string
+      Nombre:
+        type: string
+      Tipo:
+        type: string
+  models.CiiuSubclase:
+    title: CiiuSubclase
+    type: object
+    properties:
+      Clase:
+        type: string
+      Id:
+        type: string
+      Nombre:
+        type: string
+  models.CiiuTipo:
+    title: CiiuTipo
+    type: object
+    properties:
+      Id:
+        type: string
+      Nombre:
+        type: string
+  models.Documento:
+    title: Documento
+    type: object
+    properties:
+      Descripcion:
+        type: string
+      Id:
+        type: integer
+        format: int64
+      Nombre:
+        type: string
+  models.JefeDependencia:
+    title: JefeDependencia
+    type: object
+    properties:
+      ActaAprobacion:
+        type: string
+      DependenciaId:
+        type: integer
+        format: int64
+      FechaFin:
+        type: string
+        format: string
+      FechaInicio:
+        type: string
+        format: string
+      Id:
+        type: integer
+        format: int64
+      TerceroId:
+        type: integer
+        format: int64
+  models.OrdenadorGasto:
+    title: OrdenadorGasto
+    type: object
+    properties:
+      Cargo:
+        type: string
+      DependenciaId:
+        type: integer
+        format: int64
+      Id:
+        type: integer
+        format: int64
+  models.PuntoSalarial:
+    title: PuntoSalarial
+    type: object
+    properties:
+      Decreto:
+        type: string
+      FechaRegistro:
+        type: string
+        format: string
+      Id:
+        type: integer
+        format: int64
+      ValorPunto:
+        type: number
+        format: double
+      Vigencia:
+        type: integer
+        format: int64
+  models.RubrosDependencia:
+    title: RubrosDependencia
+    type: object
+    properties:
+      DependenciaId:
+        type: integer
+        format: int64
+      Estado:
+        type: string
+      Id:
+        type: integer
+        format: int64
+      RubroId:
+        type: integer
+        format: int64
+  models.RubrosOrdenador:
+    title: RubrosOrdenador
+    type: object
+    properties:
+      DependenciaId:
+        type: integer
+        format: int64
+      Estado:
+        type: string
+      Id:
+        type: integer
+        format: int64
+      MontoMaximo:
+        type: number
+        format: double
+      RubroId:
+        type: integer
+        format: int64
+  models.SalarioMinimo:
+    title: SalarioMinimo
+    type: object
+    properties:
+      Decreto:
+        type: string
+      Id:
+        type: integer
+        format: int64
+      Valor:
+        type: number
+        format: double
+      Vigencia:
+        type: integer
+        format: int64
+  models.SniesArea:
+    title: SniesArea
+    type: object
+    properties:
+      Descripcion:
+        type: string
+      Estado:
+        type: string
+      Id:
+        type: integer
+        format: int64
+      Nombre:
+        type: string
+  models.SniesNucleoBasico:
+    title: SniesNucleoBasico
+    type: object
+    properties:
+      Descripcion:
+        type: string
+      Estado:
+        type: string
+      Id:
+        type: integer
+        format: int64
+      Nombre:
+        type: string
+  models.Sucursal:
+    title: Sucursal
+    type: object
+    properties:
+      Banco:
+        $ref: '#/definitions/models.Banco'
+      Id:
+        type: integer
+        format: int64
+      Nombre:
+        type: string
+  models.Tipo_entidad:
+    title: Tipo_entidad
+    type: object
+    properties:
+      Descripcion:
+        type: string
+      Fecha_creacion:
+        type: string
+      Fecha_modificacion:
+        type: string
+      Id:
+        type: integer
+        format: int64
+  models.TipoDocumento:
+    title: TipoDocumento
+    type: object
+    properties:
+      Abreviatura:
+        type: string
+      Id:
+        type: integer
+        format: int64
+      Nombre:
+        type: string
+  models.ValorAtributoDocumento:
+    title: ValorAtributoDocumento
+    type: object
+    properties:
+      AtributoDocumento:
+        $ref: '#/definitions/models.AtributoDocumento'
+      Documento:
+        $ref: '#/definitions/models.Documento'
+      Id:
+        type: integer
+        format: int64
+      ValorAtributo:
+        type: string
+tags:
+- name: tipo_entidad
+  description: |2
+     Tipo_entidadController operations for Tipo_entidad
+- name: ciiu_division
+  description: |2
+     CiiuDivisionController operations for CiiuDivision
+- name: snies_area
+  description: |2
+     SniesAreaController operations for SniesArea
+- name: snies_nucleo_basico
+  description: |2
+     SniesNucleoBasicoController operations for SniesNucleoBasico
+- name: ciiu_clase
+  description: |2
+     CiiuClaseController operations for CiiuClase
+- name: ciiu_subclase
+  description: |2
+     CiiuSubclaseController operations for CiiuSubclase
+- name: ciiu_tipo
+  description: |
+    CiiuTipoController oprations for CiiuTipo
+- name: jefe_dependencia
+  description: |
+    JefeDependenciaController oprations for JefeDependencia
+- name: ordenador_gasto
+  description: |
+    OrdenadorGastoController oprations for OrdenadorGasto
+- name: rubros_dependencia
+  description: |
+    RubrosDependenciaController oprations for RubrosDependencia
+- name: rubros_ordenador
+  description: |
+    RubrosOrdenadorController oprations for RubrosOrdenador
+- name: sucursal
+  description: |
+    SucursalController oprations for Sucursal
+- name: banco
+  description: |
+    BancoController oprations for Banco
+- name: punto_salarial
+  description: |
+    PuntoSalarialController oprations for PuntoSalarial
+- name: salario_minimo
+  description: |
+    SalarioMinimoController oprations for SalarioMinimo
+- name: tipo_documento
+  description: |
+    TipoDocumentoController operations for TipoDocumento
+- name: documento
+  description: |
+    TipoDocumentoController operations for TipoDocumento
+- name: atributo_documento
+  description: |
+    TipoDocumentoController operations for TipoDocumento
+- name: valor_atributo_documento
+  description: |
+    TipoDocumentoController operations for TipoDocumento
