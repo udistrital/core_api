@@ -26,6 +26,12 @@ func init() {
 			),
 		),
 
+		beego.NSNamespace("/documento",
+			beego.NSInclude(
+				&controllers.DocumentoController{},
+			),
+		),
+
 		beego.NSNamespace("/snies_area",
 			beego.NSInclude(
 				&controllers.SniesAreaController{},
