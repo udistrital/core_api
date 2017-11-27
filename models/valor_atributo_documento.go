@@ -6,54 +6,49 @@ import (
 	"reflect"
 	"strings"
 
-	"time"
-
 	"github.com/astaxie/beego/orm"
 )
 
-type Documento struct {
-	Id             int            `orm:"column(id);pk;auto"`
-	Nombre         string         `orm:"column(nombre);null"`
-	Descripcion    string         `orm:"column(descripcion);null"`
-	TipoDocumento  *TipoDocumento `orm:"column(tipo_documento);rel(fk)"`
-	FechaDocumento time.Time      `orm:"column(fecha_documento);type(date)"`
-	NoDocumento    string         `orm:"column(no_documento)"`
+type ValorAtributoDocumento struct {
+	Id                int                `orm:"column(id);pk"`
+	ValorAtributo     string             `orm:"column(valor_atributo)"`
+	AtributoDocumento *AtributoDocumento `orm:"column(atributo_documento);rel(fk)"`
+	Documento         *Documento         `orm:"column(documento);rel(fk)"`
 }
 
-func (t *Documento) TableName() string {
-	return "documento"
+func (t *ValorAtributoDocumento) TableName() string {
+	return "valor_atributo_documento"
 }
 
 func init() {
-	orm.RegisterModel(new(Documento))
+	orm.RegisterModel(new(ValorAtributoDocumento))
 }
 
-// AddDocumento insert a new Documento into database and returns
+// AddValorAtributoDocumento insert a new ValorAtributoDocumento into database and returns
 // last inserted Id on success.
-func AddDocumento(m *Documento) (id int64, err error) {
+func AddValorAtributoDocumento(m *ValorAtributoDocumento) (id int64, err error) {
 	o := orm.NewOrm()
 	id, err = o.Insert(m)
 	return
 }
 
-// GetDocumentoById retrieves Documento by Id. Returns error if
+// GetValorAtributoDocumentoById retrieves ValorAtributoDocumento by Id. Returns error if
 // Id doesn't exist
-func GetDocumentoById(id int) (v *Documento, err error) {
+func GetValorAtributoDocumentoById(id int) (v *ValorAtributoDocumento, err error) {
 	o := orm.NewOrm()
-	v = &Documento{Id: id}
+	v = &ValorAtributoDocumento{Id: id}
 	if err = o.Read(v); err == nil {
 		return v, nil
 	}
 	return nil, err
 }
 
-// GetAllDocumento retrieves all Documento matches certain condition. Returns empty list if
+// GetAllValorAtributoDocumento retrieves all ValorAtributoDocumento matches certain condition. Returns empty list if
 // no records exist
-func GetAllDocumento(query map[string]string, fields []string, sortby []string, order []string,
+func GetAllValorAtributoDocumento(query map[string]string, fields []string, sortby []string, order []string,
 	offset int64, limit int64) (ml []interface{}, err error) {
 	o := orm.NewOrm()
-
-	qs := o.QueryTable(new(Documento)).RelatedSel(5)
+	qs := o.QueryTable(new(ValorAtributoDocumento))
 	// query k=v
 	for k, v := range query {
 		// rewrite dot-notation to Object__Attribute
@@ -103,7 +98,7 @@ func GetAllDocumento(query map[string]string, fields []string, sortby []string, 
 		}
 	}
 
-	var l []Documento
+	var l []ValorAtributoDocumento
 	qs = qs.OrderBy(sortFields...)
 	if _, err = qs.Limit(limit, offset).All(&l, fields...); err == nil {
 		if len(fields) == 0 {
@@ -126,11 +121,11 @@ func GetAllDocumento(query map[string]string, fields []string, sortby []string, 
 	return nil, err
 }
 
-// UpdateDocumento updates Documento by Id and returns error if
+// UpdateValorAtributoDocumento updates ValorAtributoDocumento by Id and returns error if
 // the record to be updated doesn't exist
-func UpdateDocumentoById(m *Documento) (err error) {
+func UpdateValorAtributoDocumentoById(m *ValorAtributoDocumento) (err error) {
 	o := orm.NewOrm()
-	v := Documento{Id: m.Id}
+	v := ValorAtributoDocumento{Id: m.Id}
 	// ascertain id exists in the database
 	if err = o.Read(&v); err == nil {
 		var num int64
@@ -141,15 +136,15 @@ func UpdateDocumentoById(m *Documento) (err error) {
 	return
 }
 
-// DeleteDocumento deletes Documento by Id and returns error if
+// DeleteValorAtributoDocumento deletes ValorAtributoDocumento by Id and returns error if
 // the record to be deleted doesn't exist
-func DeleteDocumento(id int) (err error) {
+func DeleteValorAtributoDocumento(id int) (err error) {
 	o := orm.NewOrm()
-	v := Documento{Id: id}
+	v := ValorAtributoDocumento{Id: id}
 	// ascertain id exists in the database
 	if err = o.Read(&v); err == nil {
 		var num int64
-		if num, err = o.Delete(&Documento{Id: id}); err == nil {
+		if num, err = o.Delete(&ValorAtributoDocumento{Id: id}); err == nil {
 			fmt.Println("Number of records deleted in database:", num)
 		}
 	}

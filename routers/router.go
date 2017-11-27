@@ -8,8 +8,8 @@
 package routers
 
 import (
-	"github.com/udistrital/core_api/controllers"
 	"github.com/astaxie/beego"
+	"github.com/udistrital/core_api/controllers"
 )
 
 func init() {
@@ -110,11 +110,22 @@ func init() {
 		),
 
 		beego.NSNamespace("/tipo_documento",
-			 beego.NSInclude(
-				 &controllers.TipoDocumentoController{},
-			 ),
+			beego.NSInclude(
+				&controllers.TipoDocumentoController{},
+			),
 		),
 
+		beego.NSNamespace("/atributo_documento",
+			beego.NSInclude(
+				&controllers.AtributoDocumentoController{},
+			),
+		),
+
+		beego.NSNamespace("/valor_atributo_documento",
+			beego.NSInclude(
+				&controllers.ValorAtributoDocumentoController{},
+			),
+		),
 	)
 	beego.AddNamespace(ns)
 }
