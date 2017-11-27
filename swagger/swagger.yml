@@ -2081,6 +2081,26 @@ paths:
           description: '{string} delete success!'
         "403":
           description: id is empty
+  /tr_documento/:
+    post:
+      tags:
+      - tr_documento
+      description: insert the TrDocumento
+      operationId: TrDocumentoController.TrDocumento
+      parameters:
+      - in: body
+        name: body
+        description: body for TrDocumento content
+        required: true
+        schema:
+          $ref: '#/definitions/models.TrDocumento'
+      responses:
+        "200":
+          description: ""
+          schema:
+            $ref: '#/definitions/.msg'
+        "403":
+          description: :id is not int
   /valor_atributo_documento/:
     get:
       tags:
@@ -2197,6 +2217,8 @@ paths:
         "403":
           description: id is empty
 definitions:
+  .msg:
+    type: object
   models.AtributoDocumento:
     title: AtributoDocumento
     type: object
@@ -2454,6 +2476,16 @@ definitions:
         format: int64
       Nombre:
         type: string
+  models.TrDocumento:
+    title: TrDocumento
+    type: object
+    properties:
+      Documento:
+        $ref: '#/definitions/models.Documento'
+      ValorAtributoDocumento:
+        type: array
+        items:
+          $ref: '#/definitions/models.ValorAtributoDocumento'
   models.ValorAtributoDocumento:
     title: ValorAtributoDocumento
     type: object
@@ -2525,3 +2557,6 @@ tags:
 - name: valor_atributo_documento
   description: |
     ValorAtributoDocumentoController operations for ValorAtributoDocumento
+- name: tr_documento
+  description: |
+    oprations for Documento

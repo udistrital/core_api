@@ -3129,6 +3129,37 @@
                 }
             }
         },
+        "/tr_documento/": {
+            "post": {
+                "tags": [
+                    "tr_documento"
+                ],
+                "description": "insert the TrDocumento",
+                "operationId": "TrDocumentoController.TrDocumento",
+                "parameters": [
+                    {
+                        "in": "body",
+                        "name": "body",
+                        "description": "body for TrDocumento content",
+                        "required": true,
+                        "schema": {
+                            "$ref": "#/definitions/models.TrDocumento"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "",
+                        "schema": {
+                            "$ref": "#/definitions/.msg"
+                        }
+                    },
+                    "403": {
+                        "description": ":id is not int"
+                    }
+                }
+            }
+        },
         "/valor_atributo_documento/": {
             "get": {
                 "tags": [
@@ -3304,6 +3335,9 @@
         }
     },
     "definitions": {
+        ".msg": {
+            "type": "object"
+        },
         "models.AtributoDocumento": {
             "title": "AtributoDocumento",
             "type": "object",
@@ -3673,6 +3707,21 @@
                 }
             }
         },
+        "models.TrDocumento": {
+            "title": "TrDocumento",
+            "type": "object",
+            "properties": {
+                "Documento": {
+                    "$ref": "#/definitions/models.Documento"
+                },
+                "ValorAtributoDocumento": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/definitions/models.ValorAtributoDocumento"
+                    }
+                }
+            }
+        },
         "models.ValorAtributoDocumento": {
             "title": "ValorAtributoDocumento",
             "type": "object",
@@ -3769,6 +3818,10 @@
         {
             "name": "valor_atributo_documento",
             "description": "ValorAtributoDocumentoController operations for ValorAtributoDocumento\n"
+        },
+        {
+            "name": "tr_documento",
+            "description": "oprations for Documento\n"
         }
     ]
 }

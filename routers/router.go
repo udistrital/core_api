@@ -126,6 +126,12 @@ func init() {
 				&controllers.ValorAtributoDocumentoController{},
 			),
 		),
+
+		beego.NSNamespace("/tr_documento",
+			beego.NSInclude(
+				&controllers.TrDocumentoController{},
+			),
+		),
 	)
 	beego.AddNamespace(ns)
 }

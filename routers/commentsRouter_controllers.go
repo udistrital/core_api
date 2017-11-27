@@ -727,6 +727,14 @@ func init() {
 			MethodParams: param.Make(),
 			Params: nil})
 
+	beego.GlobalControllerRouter["github.com/udistrital/core_api/controllers:TrDocumentoController"] = append(beego.GlobalControllerRouter["github.com/udistrital/core_api/controllers:TrDocumentoController"],
+		beego.ControllerComments{
+			Method: "Post",
+			Router: `/`,
+			AllowHTTPMethods: []string{"post"},
+			MethodParams: param.Make(),
+			Params: nil})
+
 	beego.GlobalControllerRouter["github.com/udistrital/core_api/controllers:ValorAtributoDocumentoController"] = append(beego.GlobalControllerRouter["github.com/udistrital/core_api/controllers:ValorAtributoDocumentoController"],
 		beego.ControllerComments{
 			Method: "Post",
