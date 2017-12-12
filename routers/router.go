@@ -20,12 +20,6 @@ func init() {
 			),
 		),
 
-		beego.NSNamespace("/ciiu_division",
-			beego.NSInclude(
-				&controllers.CiiuDivisionController{},
-			),
-		),
-
 		beego.NSNamespace("/documento",
 			beego.NSInclude(
 				&controllers.DocumentoController{},
@@ -37,27 +31,10 @@ func init() {
 				&controllers.SniesAreaController{},
 			),
 		),
+
 		beego.NSNamespace("/snies_nucleo_basico",
 			beego.NSInclude(
 				&controllers.SniesNucleoBasicoController{},
-			),
-		),
-
-		beego.NSNamespace("/ciiu_clase",
-			beego.NSInclude(
-				&controllers.CiiuClaseController{},
-			),
-		),
-
-		beego.NSNamespace("/ciiu_subclase",
-			beego.NSInclude(
-				&controllers.CiiuSubclaseController{},
-			),
-		),
-
-		beego.NSNamespace("/ciiu_tipo",
-			beego.NSInclude(
-				&controllers.CiiuTipoController{},
 			),
 		),
 
@@ -130,6 +107,18 @@ func init() {
 		beego.NSNamespace("/tr_documento",
 			beego.NSInclude(
 				&controllers.TrDocumentoController{},
+			),
+		),
+
+		beego.NSNamespace("/actividad_economica",
+			beego.NSInclude(
+				&controllers.ActividadEconomicaController{},
+			),
+		),
+
+		beego.NSNamespace("/clasificacion_ciiu",
+			beego.NSInclude(
+				&controllers.ClasificacionCiiuController{},
 			),
 		),
 	)

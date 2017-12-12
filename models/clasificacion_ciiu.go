@@ -9,46 +9,57 @@ import (
 	"github.com/astaxie/beego/orm"
 )
 
-type CiiuSubclase struct {
-	Clase  string `orm:"column(clase)"`
-	Id     string `orm:"column(id_subclase);pk"`
-	Nombre string `orm:"column(nombre)"`
+type ClasificacionCiiu struct {
+	Id                int    `orm:"column(id);pk;auto"`
+	Nombre            string `orm:"column(nombre)"`
+	Descripcion       string `orm:"column(descripcion);null"`
+	CodigoAbreviacion string `orm:"column(codigo_abreviacion);null"`
+	Activo            bool   `orm:"column(activo)"`
+	NumeroOrden       string `orm:"column(numero_orden);null"`
+}
+
+func (t *ClasificacionCiiu) TableName() string {
+	return "clasificacion_ciiu"
 }
 
 func init() {
-	orm.RegisterModel(new(CiiuSubclase))
+	orm.RegisterModel(new(ClasificacionCiiu))
 }
 
-// AddCiiuSubclase insert a new CiiuSubclase into database and returns
+// AddClasificacionCiiu insert a new ClasificacionCiiu into database and returns
 // last inserted Id on success.
-func AddCiiuSubclase(m *CiiuSubclase) (id int64, err error) {
+func AddClasificacionCiiu(m *ClasificacionCiiu) (id int64, err error) {
 	o := orm.NewOrm()
 	id, err = o.Insert(m)
 	return
 }
 
-// GetCiiuSubclaseById retrieves CiiuSubclase by Id. Returns error if
+// GetClasificacionCiiuById retrieves ClasificacionCiiu by Id. Returns error if
 // Id doesn't exist
-func GetCiiuSubclaseById(id string) (v *CiiuSubclase, err error) {
+func GetClasificacionCiiuById(id int) (v *ClasificacionCiiu, err error) {
 	o := orm.NewOrm()
-	v = &CiiuSubclase{Id: id}
+	v = &ClasificacionCiiu{Id: id}
 	if err = o.Read(v); err == nil {
 		return v, nil
 	}
 	return nil, err
 }
 
-// GetAllCiiuSubclase retrieves all CiiuSubclase matches certain condition. Returns empty list if
+// GetAllClasificacionCiiu retrieves all ClasificacionCiiu matches certain condition. Returns empty list if
 // no records exist
-func GetAllCiiuSubclase(query map[string]string, fields []string, sortby []string, order []string,
+func GetAllClasificacionCiiu(query map[string]string, fields []string, sortby []string, order []string,
 	offset int64, limit int64) (ml []interface{}, err error) {
 	o := orm.NewOrm()
-	qs := o.QueryTable(new(CiiuSubclase)).RelatedSel(5)
+	qs := o.QueryTable(new(ClasificacionCiiu)).RelatedSel(5)
 	// query k=v
 	for k, v := range query {
 		// rewrite dot-notation to Object__Attribute
 		k = strings.Replace(k, ".", "__", -1)
-		qs = qs.Filter(k, v)
+		if strings.Contains(k, "isnull") {
+			qs = qs.Filter(k, (v == "true" || v == "1"))
+		} else {
+			qs = qs.Filter(k, v)
+		}
 	}
 	// order by:
 	var sortFields []string
@@ -89,7 +100,7 @@ func GetAllCiiuSubclase(query map[string]string, fields []string, sortby []strin
 		}
 	}
 
-	var l []CiiuSubclase
+	var l []ClasificacionCiiu
 	qs = qs.OrderBy(sortFields...)
 	if _, err = qs.Limit(limit, offset).All(&l, fields...); err == nil {
 		if len(fields) == 0 {
@@ -112,11 +123,11 @@ func GetAllCiiuSubclase(query map[string]string, fields []string, sortby []strin
 	return nil, err
 }
 
-// UpdateCiiuSubclase updates CiiuSubclase by Id and returns error if
+// UpdateClasificacionCiiu updates ClasificacionCiiu by Id and returns error if
 // the record to be updated doesn't exist
-func UpdateCiiuSubclaseById(m *CiiuSubclase) (err error) {
+func UpdateClasificacionCiiuById(m *ClasificacionCiiu) (err error) {
 	o := orm.NewOrm()
-	v := CiiuSubclase{Id: m.Id}
+	v := ClasificacionCiiu{Id: m.Id}
 	// ascertain id exists in the database
 	if err = o.Read(&v); err == nil {
 		var num int64
@@ -127,15 +138,15 @@ func UpdateCiiuSubclaseById(m *CiiuSubclase) (err error) {
 	return
 }
 
-// DeleteCiiuSubclase deletes CiiuSubclase by Id and returns error if
+// DeleteClasificacionCiiu deletes ClasificacionCiiu by Id and returns error if
 // the record to be deleted doesn't exist
-func DeleteCiiuSubclase(id string) (err error) {
+func DeleteClasificacionCiiu(id int) (err error) {
 	o := orm.NewOrm()
-	v := CiiuSubclase{Id: id}
+	v := ClasificacionCiiu{Id: id}
 	// ascertain id exists in the database
 	if err = o.Read(&v); err == nil {
 		var num int64
-		if num, err = o.Delete(&CiiuSubclase{Id: id}); err == nil {
+		if num, err = o.Delete(&ClasificacionCiiu{Id: id}); err == nil {
 			fmt.Println("Number of records deleted in database:", num)
 		}
 	}

@@ -15,6 +15,174 @@
     },
     "basePath": "/v1",
     "paths": {
+        "/actividad_economica/": {
+            "get": {
+                "tags": [
+                    "actividad_economica"
+                ],
+                "description": "get ActividadEconomica",
+                "operationId": "ActividadEconomicaController.Get All",
+                "parameters": [
+                    {
+                        "in": "query",
+                        "name": "query",
+                        "description": "Filter. e.g. col1:v1,col2:v2 ...",
+                        "type": "string"
+                    },
+                    {
+                        "in": "query",
+                        "name": "fields",
+                        "description": "Fields returned. e.g. col1,col2 ...",
+                        "type": "string"
+                    },
+                    {
+                        "in": "query",
+                        "name": "sortby",
+                        "description": "Sorted-by fields. e.g. col1,col2 ...",
+                        "type": "string"
+                    },
+                    {
+                        "in": "query",
+                        "name": "order",
+                        "description": "Order corresponding to each sortby field, if single value, apply to all sortby fields. e.g. desc,asc ...",
+                        "type": "string"
+                    },
+                    {
+                        "in": "query",
+                        "name": "limit",
+                        "description": "Limit the size of result set. Must be an integer",
+                        "type": "string"
+                    },
+                    {
+                        "in": "query",
+                        "name": "offset",
+                        "description": "Start position of result set. Must be an integer",
+                        "type": "string"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "schema": {
+                            "$ref": "#/definitions/models.ActividadEconomica"
+                        }
+                    },
+                    "403": {}
+                }
+            },
+            "post": {
+                "tags": [
+                    "actividad_economica"
+                ],
+                "description": "create ActividadEconomica",
+                "operationId": "ActividadEconomicaController.Post",
+                "parameters": [
+                    {
+                        "in": "body",
+                        "name": "body",
+                        "description": "body for ActividadEconomica content",
+                        "required": true,
+                        "schema": {
+                            "$ref": "#/definitions/models.ActividadEconomica"
+                        }
+                    }
+                ],
+                "responses": {
+                    "201": {
+                        "description": "{int} models.ActividadEconomica"
+                    },
+                    "403": {
+                        "description": "body is empty"
+                    }
+                }
+            }
+        },
+        "/actividad_economica/{id}": {
+            "get": {
+                "tags": [
+                    "actividad_economica"
+                ],
+                "description": "get ActividadEconomica by id",
+                "operationId": "ActividadEconomicaController.Get One",
+                "parameters": [
+                    {
+                        "in": "path",
+                        "name": "id",
+                        "description": "The key for staticblock",
+                        "required": true,
+                        "type": "string"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "schema": {
+                            "$ref": "#/definitions/models.ActividadEconomica"
+                        }
+                    },
+                    "403": {
+                        "description": ":id is empty"
+                    }
+                }
+            },
+            "put": {
+                "tags": [
+                    "actividad_economica"
+                ],
+                "description": "update the ActividadEconomica",
+                "operationId": "ActividadEconomicaController.Put",
+                "parameters": [
+                    {
+                        "in": "path",
+                        "name": "id",
+                        "description": "The id you want to update",
+                        "required": true,
+                        "type": "string"
+                    },
+                    {
+                        "in": "body",
+                        "name": "body",
+                        "description": "body for ActividadEconomica content",
+                        "required": true,
+                        "schema": {
+                            "$ref": "#/definitions/models.ActividadEconomica"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "schema": {
+                            "$ref": "#/definitions/models.ActividadEconomica"
+                        }
+                    },
+                    "403": {
+                        "description": ":id is not int"
+                    }
+                }
+            },
+            "delete": {
+                "tags": [
+                    "actividad_economica"
+                ],
+                "description": "delete the ActividadEconomica",
+                "operationId": "ActividadEconomicaController.Delete",
+                "parameters": [
+                    {
+                        "in": "path",
+                        "name": "id",
+                        "description": "The id you want to delete",
+                        "required": true,
+                        "type": "string"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "{string} delete success!"
+                    },
+                    "403": {
+                        "description": "id is empty"
+                    }
+                }
+            }
+        },
         "/atributo_documento/": {
             "get": {
                 "tags": [
@@ -62,14 +230,11 @@
                 ],
                 "responses": {
                     "200": {
-                        "description": "",
                         "schema": {
                             "$ref": "#/definitions/models.AtributoDocumento"
                         }
                     },
-                    "403": {
-                        "description": ""
-                    }
+                    "403": {}
                 }
             },
             "post": {
@@ -117,7 +282,6 @@
                 ],
                 "responses": {
                     "200": {
-                        "description": "",
                         "schema": {
                             "$ref": "#/definitions/models.AtributoDocumento"
                         }
@@ -153,7 +317,6 @@
                 ],
                 "responses": {
                     "200": {
-                        "description": "",
                         "schema": {
                             "$ref": "#/definitions/models.AtributoDocumento"
                         }
@@ -235,14 +398,11 @@
                 ],
                 "responses": {
                     "200": {
-                        "description": "",
                         "schema": {
                             "$ref": "#/definitions/models.Banco"
                         }
                     },
-                    "403": {
-                        "description": ""
-                    }
+                    "403": {}
                 }
             },
             "post": {
@@ -290,7 +450,6 @@
                 ],
                 "responses": {
                     "200": {
-                        "description": "",
                         "schema": {
                             "$ref": "#/definitions/models.Banco"
                         }
@@ -326,7 +485,6 @@
                 ],
                 "responses": {
                     "200": {
-                        "description": "",
                         "schema": {
                             "$ref": "#/definitions/models.Banco"
                         }
@@ -361,13 +519,13 @@
                 }
             }
         },
-        "/ciiu_clase/": {
+        "/clasificacion_ciiu/": {
             "get": {
                 "tags": [
-                    "ciiu_clase"
+                    "clasificacion_ciiu"
                 ],
-                "description": "get CiiuClase",
-                "operationId": "CiiuClaseController.Get All",
+                "description": "get ClasificacionCiiu",
+                "operationId": "ClasificacionCiiuController.Get All",
                 "parameters": [
                     {
                         "in": "query",
@@ -408,36 +566,33 @@
                 ],
                 "responses": {
                     "200": {
-                        "description": "",
                         "schema": {
-                            "$ref": "#/definitions/models.CiiuClase"
+                            "$ref": "#/definitions/models.ClasificacionCiiu"
                         }
                     },
-                    "403": {
-                        "description": ""
-                    }
+                    "403": {}
                 }
             },
             "post": {
                 "tags": [
-                    "ciiu_clase"
+                    "clasificacion_ciiu"
                 ],
-                "description": "create CiiuClase",
-                "operationId": "CiiuClaseController.Post",
+                "description": "create ClasificacionCiiu",
+                "operationId": "ClasificacionCiiuController.Post",
                 "parameters": [
                     {
                         "in": "body",
                         "name": "body",
-                        "description": "body for CiiuClase content",
+                        "description": "body for ClasificacionCiiu content",
                         "required": true,
                         "schema": {
-                            "$ref": "#/definitions/models.CiiuClase"
+                            "$ref": "#/definitions/models.ClasificacionCiiu"
                         }
                     }
                 ],
                 "responses": {
                     "201": {
-                        "description": "{int} models.CiiuClase"
+                        "description": "{int} models.ClasificacionCiiu"
                     },
                     "403": {
                         "description": "body is empty"
@@ -445,13 +600,13 @@
                 }
             }
         },
-        "/ciiu_clase/{id}": {
+        "/clasificacion_ciiu/{id}": {
             "get": {
                 "tags": [
-                    "ciiu_clase"
+                    "clasificacion_ciiu"
                 ],
-                "description": "get CiiuClase by id",
-                "operationId": "CiiuClaseController.Get One",
+                "description": "get ClasificacionCiiu by id",
+                "operationId": "ClasificacionCiiuController.Get One",
                 "parameters": [
                     {
                         "in": "path",
@@ -463,9 +618,8 @@
                 ],
                 "responses": {
                     "200": {
-                        "description": "",
                         "schema": {
-                            "$ref": "#/definitions/models.CiiuClase"
+                            "$ref": "#/definitions/models.ClasificacionCiiu"
                         }
                     },
                     "403": {
@@ -475,10 +629,10 @@
             },
             "put": {
                 "tags": [
-                    "ciiu_clase"
+                    "clasificacion_ciiu"
                 ],
-                "description": "update the CiiuClase",
-                "operationId": "CiiuClaseController.Put",
+                "description": "update the ClasificacionCiiu",
+                "operationId": "ClasificacionCiiuController.Put",
                 "parameters": [
                     {
                         "in": "path",
@@ -490,18 +644,17 @@
                     {
                         "in": "body",
                         "name": "body",
-                        "description": "body for CiiuClase content",
+                        "description": "body for ClasificacionCiiu content",
                         "required": true,
                         "schema": {
-                            "$ref": "#/definitions/models.CiiuClase"
+                            "$ref": "#/definitions/models.ClasificacionCiiu"
                         }
                     }
                 ],
                 "responses": {
                     "200": {
-                        "description": "",
                         "schema": {
-                            "$ref": "#/definitions/models.CiiuClase"
+                            "$ref": "#/definitions/models.ClasificacionCiiu"
                         }
                     },
                     "403": {
@@ -511,529 +664,10 @@
             },
             "delete": {
                 "tags": [
-                    "ciiu_clase"
+                    "clasificacion_ciiu"
                 ],
-                "description": "delete the CiiuClase",
-                "operationId": "CiiuClaseController.Delete",
-                "parameters": [
-                    {
-                        "in": "path",
-                        "name": "id",
-                        "description": "The id you want to delete",
-                        "required": true,
-                        "type": "string"
-                    }
-                ],
-                "responses": {
-                    "200": {
-                        "description": "{string} delete success!"
-                    },
-                    "403": {
-                        "description": "id is empty"
-                    }
-                }
-            }
-        },
-        "/ciiu_division/": {
-            "get": {
-                "tags": [
-                    "ciiu_division"
-                ],
-                "description": "get CiiuDivision",
-                "operationId": "CiiuDivisionController.Get All",
-                "parameters": [
-                    {
-                        "in": "query",
-                        "name": "query",
-                        "description": "Filter. e.g. col1:v1,col2:v2 ...",
-                        "type": "string"
-                    },
-                    {
-                        "in": "query",
-                        "name": "fields",
-                        "description": "Fields returned. e.g. col1,col2 ...",
-                        "type": "string"
-                    },
-                    {
-                        "in": "query",
-                        "name": "sortby",
-                        "description": "Sorted-by fields. e.g. col1,col2 ...",
-                        "type": "string"
-                    },
-                    {
-                        "in": "query",
-                        "name": "order",
-                        "description": "Order corresponding to each sortby field, if single value, apply to all sortby fields. e.g. desc,asc ...",
-                        "type": "string"
-                    },
-                    {
-                        "in": "query",
-                        "name": "limit",
-                        "description": "Limit the size of result set. Must be an integer",
-                        "type": "string"
-                    },
-                    {
-                        "in": "query",
-                        "name": "offset",
-                        "description": "Start position of result set. Must be an integer",
-                        "type": "string"
-                    }
-                ],
-                "responses": {
-                    "200": {
-                        "description": "",
-                        "schema": {
-                            "$ref": "#/definitions/models.CiiuDivision"
-                        }
-                    },
-                    "403": {
-                        "description": ""
-                    }
-                }
-            },
-            "post": {
-                "tags": [
-                    "ciiu_division"
-                ],
-                "description": "create CiiuDivision",
-                "operationId": "CiiuDivisionController.Post",
-                "parameters": [
-                    {
-                        "in": "body",
-                        "name": "body",
-                        "description": "body for CiiuDivision content",
-                        "required": true,
-                        "schema": {
-                            "$ref": "#/definitions/models.CiiuDivision"
-                        }
-                    }
-                ],
-                "responses": {
-                    "201": {
-                        "description": "{int} models.CiiuDivision"
-                    },
-                    "403": {
-                        "description": "body is empty"
-                    }
-                }
-            }
-        },
-        "/ciiu_division/{id}": {
-            "get": {
-                "tags": [
-                    "ciiu_division"
-                ],
-                "description": "get CiiuDivision by id",
-                "operationId": "CiiuDivisionController.Get One",
-                "parameters": [
-                    {
-                        "in": "path",
-                        "name": "id",
-                        "description": "The key for staticblock",
-                        "required": true,
-                        "type": "string"
-                    }
-                ],
-                "responses": {
-                    "200": {
-                        "description": "",
-                        "schema": {
-                            "$ref": "#/definitions/models.CiiuDivision"
-                        }
-                    },
-                    "403": {
-                        "description": ":id is empty"
-                    }
-                }
-            },
-            "put": {
-                "tags": [
-                    "ciiu_division"
-                ],
-                "description": "update the CiiuDivision",
-                "operationId": "CiiuDivisionController.Put",
-                "parameters": [
-                    {
-                        "in": "path",
-                        "name": "id",
-                        "description": "The id you want to update",
-                        "required": true,
-                        "type": "string"
-                    },
-                    {
-                        "in": "body",
-                        "name": "body",
-                        "description": "body for CiiuDivision content",
-                        "required": true,
-                        "schema": {
-                            "$ref": "#/definitions/models.CiiuDivision"
-                        }
-                    }
-                ],
-                "responses": {
-                    "200": {
-                        "description": "",
-                        "schema": {
-                            "$ref": "#/definitions/models.CiiuDivision"
-                        }
-                    },
-                    "403": {
-                        "description": ":id is not int"
-                    }
-                }
-            },
-            "delete": {
-                "tags": [
-                    "ciiu_division"
-                ],
-                "description": "delete the CiiuDivision",
-                "operationId": "CiiuDivisionController.Delete",
-                "parameters": [
-                    {
-                        "in": "path",
-                        "name": "id",
-                        "description": "The id you want to delete",
-                        "required": true,
-                        "type": "string"
-                    }
-                ],
-                "responses": {
-                    "200": {
-                        "description": "{string} delete success!"
-                    },
-                    "403": {
-                        "description": "id is empty"
-                    }
-                }
-            }
-        },
-        "/ciiu_subclase/": {
-            "get": {
-                "tags": [
-                    "ciiu_subclase"
-                ],
-                "description": "get CiiuSubclase",
-                "operationId": "CiiuSubclaseController.Get All",
-                "parameters": [
-                    {
-                        "in": "query",
-                        "name": "query",
-                        "description": "Filter. e.g. col1:v1,col2:v2 ...",
-                        "type": "string"
-                    },
-                    {
-                        "in": "query",
-                        "name": "fields",
-                        "description": "Fields returned. e.g. col1,col2 ...",
-                        "type": "string"
-                    },
-                    {
-                        "in": "query",
-                        "name": "sortby",
-                        "description": "Sorted-by fields. e.g. col1,col2 ...",
-                        "type": "string"
-                    },
-                    {
-                        "in": "query",
-                        "name": "order",
-                        "description": "Order corresponding to each sortby field, if single value, apply to all sortby fields. e.g. desc,asc ...",
-                        "type": "string"
-                    },
-                    {
-                        "in": "query",
-                        "name": "limit",
-                        "description": "Limit the size of result set. Must be an integer",
-                        "type": "string"
-                    },
-                    {
-                        "in": "query",
-                        "name": "offset",
-                        "description": "Start position of result set. Must be an integer",
-                        "type": "string"
-                    }
-                ],
-                "responses": {
-                    "200": {
-                        "description": "",
-                        "schema": {
-                            "$ref": "#/definitions/models.CiiuSubclase"
-                        }
-                    },
-                    "403": {
-                        "description": ""
-                    }
-                }
-            },
-            "post": {
-                "tags": [
-                    "ciiu_subclase"
-                ],
-                "description": "create CiiuSubclase",
-                "operationId": "CiiuSubclaseController.Post",
-                "parameters": [
-                    {
-                        "in": "body",
-                        "name": "body",
-                        "description": "body for CiiuSubclase content",
-                        "required": true,
-                        "schema": {
-                            "$ref": "#/definitions/models.CiiuSubclase"
-                        }
-                    }
-                ],
-                "responses": {
-                    "201": {
-                        "description": "{int} models.CiiuSubclase"
-                    },
-                    "403": {
-                        "description": "body is empty"
-                    }
-                }
-            }
-        },
-        "/ciiu_subclase/{id}": {
-            "get": {
-                "tags": [
-                    "ciiu_subclase"
-                ],
-                "description": "get CiiuSubclase by id",
-                "operationId": "CiiuSubclaseController.Get One",
-                "parameters": [
-                    {
-                        "in": "path",
-                        "name": "id",
-                        "description": "The key for staticblock",
-                        "required": true,
-                        "type": "string"
-                    }
-                ],
-                "responses": {
-                    "200": {
-                        "description": "",
-                        "schema": {
-                            "$ref": "#/definitions/models.CiiuSubclase"
-                        }
-                    },
-                    "403": {
-                        "description": ":id is empty"
-                    }
-                }
-            },
-            "put": {
-                "tags": [
-                    "ciiu_subclase"
-                ],
-                "description": "update the CiiuSubclase",
-                "operationId": "CiiuSubclaseController.Put",
-                "parameters": [
-                    {
-                        "in": "path",
-                        "name": "id",
-                        "description": "The id you want to update",
-                        "required": true,
-                        "type": "string"
-                    },
-                    {
-                        "in": "body",
-                        "name": "body",
-                        "description": "body for CiiuSubclase content",
-                        "required": true,
-                        "schema": {
-                            "$ref": "#/definitions/models.CiiuSubclase"
-                        }
-                    }
-                ],
-                "responses": {
-                    "200": {
-                        "description": "",
-                        "schema": {
-                            "$ref": "#/definitions/models.CiiuSubclase"
-                        }
-                    },
-                    "403": {
-                        "description": ":id is not int"
-                    }
-                }
-            },
-            "delete": {
-                "tags": [
-                    "ciiu_subclase"
-                ],
-                "description": "delete the CiiuSubclase",
-                "operationId": "CiiuSubclaseController.Delete",
-                "parameters": [
-                    {
-                        "in": "path",
-                        "name": "id",
-                        "description": "The id you want to delete",
-                        "required": true,
-                        "type": "string"
-                    }
-                ],
-                "responses": {
-                    "200": {
-                        "description": "{string} delete success!"
-                    },
-                    "403": {
-                        "description": "id is empty"
-                    }
-                }
-            }
-        },
-        "/ciiu_tipo/": {
-            "get": {
-                "tags": [
-                    "ciiu_tipo"
-                ],
-                "description": "get CiiuTipo",
-                "operationId": "CiiuTipoController.Get All",
-                "parameters": [
-                    {
-                        "in": "query",
-                        "name": "query",
-                        "description": "Filter. e.g. col1:v1,col2:v2 ...",
-                        "type": "string"
-                    },
-                    {
-                        "in": "query",
-                        "name": "fields",
-                        "description": "Fields returned. e.g. col1,col2 ...",
-                        "type": "string"
-                    },
-                    {
-                        "in": "query",
-                        "name": "sortby",
-                        "description": "Sorted-by fields. e.g. col1,col2 ...",
-                        "type": "string"
-                    },
-                    {
-                        "in": "query",
-                        "name": "order",
-                        "description": "Order corresponding to each sortby field, if single value, apply to all sortby fields. e.g. desc,asc ...",
-                        "type": "string"
-                    },
-                    {
-                        "in": "query",
-                        "name": "limit",
-                        "description": "Limit the size of result set. Must be an integer",
-                        "type": "string"
-                    },
-                    {
-                        "in": "query",
-                        "name": "offset",
-                        "description": "Start position of result set. Must be an integer",
-                        "type": "string"
-                    }
-                ],
-                "responses": {
-                    "200": {
-                        "description": "",
-                        "schema": {
-                            "$ref": "#/definitions/models.CiiuTipo"
-                        }
-                    },
-                    "403": {
-                        "description": ""
-                    }
-                }
-            },
-            "post": {
-                "tags": [
-                    "ciiu_tipo"
-                ],
-                "description": "create CiiuTipo",
-                "operationId": "CiiuTipoController.Post",
-                "parameters": [
-                    {
-                        "in": "body",
-                        "name": "body",
-                        "description": "body for CiiuTipo content",
-                        "required": true,
-                        "schema": {
-                            "$ref": "#/definitions/models.CiiuTipo"
-                        }
-                    }
-                ],
-                "responses": {
-                    "201": {
-                        "description": "{int} models.CiiuTipo"
-                    },
-                    "403": {
-                        "description": "body is empty"
-                    }
-                }
-            }
-        },
-        "/ciiu_tipo/{id}": {
-            "get": {
-                "tags": [
-                    "ciiu_tipo"
-                ],
-                "description": "get CiiuTipo by id",
-                "operationId": "CiiuTipoController.Get One",
-                "parameters": [
-                    {
-                        "in": "path",
-                        "name": "id",
-                        "description": "The key for staticblock",
-                        "required": true,
-                        "type": "string"
-                    }
-                ],
-                "responses": {
-                    "200": {
-                        "description": "",
-                        "schema": {
-                            "$ref": "#/definitions/models.CiiuTipo"
-                        }
-                    },
-                    "403": {
-                        "description": ":id is empty"
-                    }
-                }
-            },
-            "put": {
-                "tags": [
-                    "ciiu_tipo"
-                ],
-                "description": "update the CiiuTipo",
-                "operationId": "CiiuTipoController.Put",
-                "parameters": [
-                    {
-                        "in": "path",
-                        "name": "id",
-                        "description": "The id you want to update",
-                        "required": true,
-                        "type": "string"
-                    },
-                    {
-                        "in": "body",
-                        "name": "body",
-                        "description": "body for CiiuTipo content",
-                        "required": true,
-                        "schema": {
-                            "$ref": "#/definitions/models.CiiuTipo"
-                        }
-                    }
-                ],
-                "responses": {
-                    "200": {
-                        "description": "",
-                        "schema": {
-                            "$ref": "#/definitions/models.CiiuTipo"
-                        }
-                    },
-                    "403": {
-                        "description": ":id is not int"
-                    }
-                }
-            },
-            "delete": {
-                "tags": [
-                    "ciiu_tipo"
-                ],
-                "description": "delete the CiiuTipo",
-                "operationId": "CiiuTipoController.Delete",
+                "description": "delete the ClasificacionCiiu",
+                "operationId": "ClasificacionCiiuController.Delete",
                 "parameters": [
                     {
                         "in": "path",
@@ -1100,14 +734,11 @@
                 ],
                 "responses": {
                     "200": {
-                        "description": "",
                         "schema": {
                             "$ref": "#/definitions/models.Documento"
                         }
                     },
-                    "403": {
-                        "description": ""
-                    }
+                    "403": {}
                 }
             },
             "post": {
@@ -1155,7 +786,6 @@
                 ],
                 "responses": {
                     "200": {
-                        "description": "",
                         "schema": {
                             "$ref": "#/definitions/models.Documento"
                         }
@@ -1191,7 +821,6 @@
                 ],
                 "responses": {
                     "200": {
-                        "description": "",
                         "schema": {
                             "$ref": "#/definitions/models.Documento"
                         }
@@ -1273,14 +902,11 @@
                 ],
                 "responses": {
                     "200": {
-                        "description": "",
                         "schema": {
                             "$ref": "#/definitions/models.JefeDependencia"
                         }
                     },
-                    "403": {
-                        "description": ""
-                    }
+                    "403": {}
                 }
             },
             "post": {
@@ -1328,7 +954,6 @@
                 ],
                 "responses": {
                     "200": {
-                        "description": "",
                         "schema": {
                             "$ref": "#/definitions/models.JefeDependencia"
                         }
@@ -1364,7 +989,6 @@
                 ],
                 "responses": {
                     "200": {
-                        "description": "",
                         "schema": {
                             "$ref": "#/definitions/models.JefeDependencia"
                         }
@@ -1446,14 +1070,11 @@
                 ],
                 "responses": {
                     "200": {
-                        "description": "",
                         "schema": {
                             "$ref": "#/definitions/models.OrdenadorGasto"
                         }
                     },
-                    "403": {
-                        "description": ""
-                    }
+                    "403": {}
                 }
             },
             "post": {
@@ -1501,7 +1122,6 @@
                 ],
                 "responses": {
                     "200": {
-                        "description": "",
                         "schema": {
                             "$ref": "#/definitions/models.OrdenadorGasto"
                         }
@@ -1537,7 +1157,6 @@
                 ],
                 "responses": {
                     "200": {
-                        "description": "",
                         "schema": {
                             "$ref": "#/definitions/models.OrdenadorGasto"
                         }
@@ -1619,14 +1238,11 @@
                 ],
                 "responses": {
                     "200": {
-                        "description": "",
                         "schema": {
                             "$ref": "#/definitions/models.PuntoSalarial"
                         }
                     },
-                    "403": {
-                        "description": ""
-                    }
+                    "403": {}
                 }
             },
             "post": {
@@ -1674,7 +1290,6 @@
                 ],
                 "responses": {
                     "200": {
-                        "description": "",
                         "schema": {
                             "$ref": "#/definitions/models.PuntoSalarial"
                         }
@@ -1710,7 +1325,6 @@
                 ],
                 "responses": {
                     "200": {
-                        "description": "",
                         "schema": {
                             "$ref": "#/definitions/models.PuntoSalarial"
                         }
@@ -1792,14 +1406,11 @@
                 ],
                 "responses": {
                     "200": {
-                        "description": "",
                         "schema": {
                             "$ref": "#/definitions/models.RubrosDependencia"
                         }
                     },
-                    "403": {
-                        "description": ""
-                    }
+                    "403": {}
                 }
             },
             "post": {
@@ -1847,7 +1458,6 @@
                 ],
                 "responses": {
                     "200": {
-                        "description": "",
                         "schema": {
                             "$ref": "#/definitions/models.RubrosDependencia"
                         }
@@ -1883,7 +1493,6 @@
                 ],
                 "responses": {
                     "200": {
-                        "description": "",
                         "schema": {
                             "$ref": "#/definitions/models.RubrosDependencia"
                         }
@@ -1965,14 +1574,11 @@
                 ],
                 "responses": {
                     "200": {
-                        "description": "",
                         "schema": {
                             "$ref": "#/definitions/models.RubrosOrdenador"
                         }
                     },
-                    "403": {
-                        "description": ""
-                    }
+                    "403": {}
                 }
             },
             "post": {
@@ -2020,7 +1626,6 @@
                 ],
                 "responses": {
                     "200": {
-                        "description": "",
                         "schema": {
                             "$ref": "#/definitions/models.RubrosOrdenador"
                         }
@@ -2056,7 +1661,6 @@
                 ],
                 "responses": {
                     "200": {
-                        "description": "",
                         "schema": {
                             "$ref": "#/definitions/models.RubrosOrdenador"
                         }
@@ -2138,14 +1742,11 @@
                 ],
                 "responses": {
                     "200": {
-                        "description": "",
                         "schema": {
                             "$ref": "#/definitions/models.SalarioMinimo"
                         }
                     },
-                    "403": {
-                        "description": ""
-                    }
+                    "403": {}
                 }
             },
             "post": {
@@ -2193,7 +1794,6 @@
                 ],
                 "responses": {
                     "200": {
-                        "description": "",
                         "schema": {
                             "$ref": "#/definitions/models.SalarioMinimo"
                         }
@@ -2229,7 +1829,6 @@
                 ],
                 "responses": {
                     "200": {
-                        "description": "",
                         "schema": {
                             "$ref": "#/definitions/models.SalarioMinimo"
                         }
@@ -2311,14 +1910,11 @@
                 ],
                 "responses": {
                     "200": {
-                        "description": "",
                         "schema": {
                             "$ref": "#/definitions/models.SniesArea"
                         }
                     },
-                    "403": {
-                        "description": ""
-                    }
+                    "403": {}
                 }
             },
             "post": {
@@ -2366,7 +1962,6 @@
                 ],
                 "responses": {
                     "200": {
-                        "description": "",
                         "schema": {
                             "$ref": "#/definitions/models.SniesArea"
                         }
@@ -2402,7 +1997,6 @@
                 ],
                 "responses": {
                     "200": {
-                        "description": "",
                         "schema": {
                             "$ref": "#/definitions/models.SniesArea"
                         }
@@ -2484,14 +2078,11 @@
                 ],
                 "responses": {
                     "200": {
-                        "description": "",
                         "schema": {
                             "$ref": "#/definitions/models.SniesNucleoBasico"
                         }
                     },
-                    "403": {
-                        "description": ""
-                    }
+                    "403": {}
                 }
             },
             "post": {
@@ -2539,7 +2130,6 @@
                 ],
                 "responses": {
                     "200": {
-                        "description": "",
                         "schema": {
                             "$ref": "#/definitions/models.SniesNucleoBasico"
                         }
@@ -2575,7 +2165,6 @@
                 ],
                 "responses": {
                     "200": {
-                        "description": "",
                         "schema": {
                             "$ref": "#/definitions/models.SniesNucleoBasico"
                         }
@@ -2657,14 +2246,11 @@
                 ],
                 "responses": {
                     "200": {
-                        "description": "",
                         "schema": {
                             "$ref": "#/definitions/models.Sucursal"
                         }
                     },
-                    "403": {
-                        "description": ""
-                    }
+                    "403": {}
                 }
             },
             "post": {
@@ -2712,7 +2298,6 @@
                 ],
                 "responses": {
                     "200": {
-                        "description": "",
                         "schema": {
                             "$ref": "#/definitions/models.Sucursal"
                         }
@@ -2748,7 +2333,6 @@
                 ],
                 "responses": {
                     "200": {
-                        "description": "",
                         "schema": {
                             "$ref": "#/definitions/models.Sucursal"
                         }
@@ -2830,14 +2414,11 @@
                 ],
                 "responses": {
                     "200": {
-                        "description": "",
                         "schema": {
                             "$ref": "#/definitions/models.TipoDocumento"
                         }
                     },
-                    "403": {
-                        "description": ""
-                    }
+                    "403": {}
                 }
             },
             "post": {
@@ -2885,7 +2466,6 @@
                 ],
                 "responses": {
                     "200": {
-                        "description": "",
                         "schema": {
                             "$ref": "#/definitions/models.TipoDocumento"
                         }
@@ -2921,7 +2501,6 @@
                 ],
                 "responses": {
                     "200": {
-                        "description": "",
                         "schema": {
                             "$ref": "#/definitions/models.TipoDocumento"
                         }
@@ -3003,14 +2582,11 @@
                 ],
                 "responses": {
                     "200": {
-                        "description": "",
                         "schema": {
                             "$ref": "#/definitions/models.Tipo_entidad"
                         }
                     },
-                    "403": {
-                        "description": ""
-                    }
+                    "403": {}
                 }
             },
             "post": {
@@ -3058,7 +2634,6 @@
                 ],
                 "responses": {
                     "200": {
-                        "description": "",
                         "schema": {
                             "$ref": "#/definitions/models.Tipo_entidad"
                         }
@@ -3094,7 +2669,6 @@
                 ],
                 "responses": {
                     "200": {
-                        "description": "",
                         "schema": {
                             "$ref": "#/definitions/models.Tipo_entidad"
                         }
@@ -3149,7 +2723,6 @@
                 ],
                 "responses": {
                     "200": {
-                        "description": "",
                         "schema": {
                             "$ref": "#/definitions/.msg"
                         }
@@ -3207,14 +2780,11 @@
                 ],
                 "responses": {
                     "200": {
-                        "description": "",
                         "schema": {
                             "$ref": "#/definitions/models.ValorAtributoDocumento"
                         }
                     },
-                    "403": {
-                        "description": ""
-                    }
+                    "403": {}
                 }
             },
             "post": {
@@ -3262,7 +2832,6 @@
                 ],
                 "responses": {
                     "200": {
-                        "description": "",
                         "schema": {
                             "$ref": "#/definitions/models.ValorAtributoDocumento"
                         }
@@ -3298,7 +2867,6 @@
                 ],
                 "responses": {
                     "200": {
-                        "description": "",
                         "schema": {
                             "$ref": "#/definitions/models.ValorAtributoDocumento"
                         }
@@ -3337,6 +2905,30 @@
     "definitions": {
         ".msg": {
             "type": "object"
+        },
+        "models.ActividadEconomica": {
+            "title": "ActividadEconomica",
+            "type": "object",
+            "properties": {
+                "ActividadEconomica": {
+                    "type": "integer",
+                    "format": "int64"
+                },
+                "Activo": {
+                    "type": "boolean"
+                },
+                "ClasificacionCiiu": {
+                    "type": "integer",
+                    "format": "int64"
+                },
+                "Id": {
+                    "type": "integer",
+                    "format": "int64"
+                },
+                "Nombre": {
+                    "type": "string"
+                }
+            }
         },
         "models.AtributoDocumento": {
             "title": "AtributoDocumento",
@@ -3397,59 +2989,27 @@
                 }
             }
         },
-        "models.CiiuClase": {
-            "title": "CiiuClase",
+        "models.ClasificacionCiiu": {
+            "title": "ClasificacionCiiu",
             "type": "object",
             "properties": {
-                "Division": {
+                "Activo": {
+                    "type": "boolean"
+                },
+                "CodigoAbreviacion": {
+                    "type": "string"
+                },
+                "Descripcion": {
                     "type": "string"
                 },
                 "Id": {
-                    "type": "string"
-                },
-                "Nombre": {
-                    "type": "string"
-                }
-            }
-        },
-        "models.CiiuDivision": {
-            "title": "CiiuDivision",
-            "type": "object",
-            "properties": {
-                "Id": {
-                    "type": "string"
+                    "type": "integer",
+                    "format": "int64"
                 },
                 "Nombre": {
                     "type": "string"
                 },
-                "Tipo": {
-                    "type": "string"
-                }
-            }
-        },
-        "models.CiiuSubclase": {
-            "title": "CiiuSubclase",
-            "type": "object",
-            "properties": {
-                "Clase": {
-                    "type": "string"
-                },
-                "Id": {
-                    "type": "string"
-                },
-                "Nombre": {
-                    "type": "string"
-                }
-            }
-        },
-        "models.CiiuTipo": {
-            "title": "CiiuTipo",
-            "type": "object",
-            "properties": {
-                "Id": {
-                    "type": "string"
-                },
-                "Nombre": {
+                "NumeroOrden": {
                     "type": "string"
                 }
             }
@@ -3748,10 +3308,6 @@
             "description": " Tipo_entidadController operations for Tipo_entidad\n"
         },
         {
-            "name": "ciiu_division",
-            "description": " CiiuDivisionController operations for CiiuDivision\n"
-        },
-        {
             "name": "documento",
             "description": "DocumentoController operations for Documento\n"
         },
@@ -3762,18 +3318,6 @@
         {
             "name": "snies_nucleo_basico",
             "description": " SniesNucleoBasicoController operations for SniesNucleoBasico\n"
-        },
-        {
-            "name": "ciiu_clase",
-            "description": " CiiuClaseController operations for CiiuClase\n"
-        },
-        {
-            "name": "ciiu_subclase",
-            "description": " CiiuSubclaseController operations for CiiuSubclase\n"
-        },
-        {
-            "name": "ciiu_tipo",
-            "description": "CiiuTipoController oprations for CiiuTipo\n"
         },
         {
             "name": "jefe_dependencia",
@@ -3822,6 +3366,14 @@
         {
             "name": "tr_documento",
             "description": "oprations for Documento\n"
+        },
+        {
+            "name": "actividad_economica",
+            "description": "ActividadEconomicaController operations for ActividadEconomica\n"
+        },
+        {
+            "name": "clasificacion_ciiu",
+            "description": "ClasificacionCiiuController operations for ClasificacionCiiu\n"
         }
     ]
 }

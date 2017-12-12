@@ -9,49 +9,56 @@ import (
 	"github.com/astaxie/beego/orm"
 )
 
-type CiiuTipo struct {
-	Id     string    `orm:"column(id_tipo);pk"`
-	Nombre string `orm:"column(nombre)"`
+type ActividadEconomica struct {
+	Id                 int    `orm:"column(id);pk;auto"`
+	Nombre             string `orm:"column(nombre)"`
+	ActividadEconomica int    `orm:"column(actividad_economica)"`
+	ClasificacionCiiu  int    `orm:"column(clasificacion_ciiu)"`
+	Activo             bool   `orm:"column(activo)"`
 }
 
-func (t *CiiuTipo) TableName() string {
-	return "ciiu_tipo"
+func (t *ActividadEconomica) TableName() string {
+	return "actividad_economica"
 }
 
 func init() {
-	orm.RegisterModel(new(CiiuTipo))
+	orm.RegisterModel(new(ActividadEconomica))
 }
 
-// AddCiiuTipo insert a new CiiuTipo into database and returns
+// AddActividadEconomica insert a new ActividadEconomica into database and returns
 // last inserted Id on success.
-func AddCiiuTipo(m *CiiuTipo) (id int64, err error) {
+func AddActividadEconomica(m *ActividadEconomica) (id int64, err error) {
 	o := orm.NewOrm()
 	id, err = o.Insert(m)
 	return
 }
 
-// GetCiiuTipoById retrieves CiiuTipo by Id. Returns error if
+// GetActividadEconomicaById retrieves ActividadEconomica by Id. Returns error if
 // Id doesn't exist
-func GetCiiuTipoById(id string) (v *CiiuTipo, err error) {
+func GetActividadEconomicaById(id int) (v *ActividadEconomica, err error) {
 	o := orm.NewOrm()
-	v = &CiiuTipo{Id: id}
+	v = &ActividadEconomica{Id: id}
 	if err = o.Read(v); err == nil {
 		return v, nil
 	}
 	return nil, err
 }
 
-// GetAllCiiuTipo retrieves all CiiuTipo matches certain condition. Returns empty list if
+// GetAllActividadEconomica retrieves all ActividadEconomica matches certain condition. Returns empty list if
 // no records exist
-func GetAllCiiuTipo(query map[string]string, fields []string, sortby []string, order []string,
+func GetAllActividadEconomica(query map[string]string, fields []string, sortby []string, order []string,
 	offset int64, limit int64) (ml []interface{}, err error) {
 	o := orm.NewOrm()
-	qs := o.QueryTable(new(CiiuTipo))
+	qs := o.QueryTable(new(ActividadEconomica)).RelatedSel(5)
 	// query k=v
 	for k, v := range query {
 		// rewrite dot-notation to Object__Attribute
 		k = strings.Replace(k, ".", "__", -1)
-		qs = qs.Filter(k, v)
+		if strings.Contains(k, "isnull") {
+			qs = qs.Filter(k, (v == "true" || v == "1"))
+		} else {
+			qs = qs.Filter(k, v)
+		}
 	}
 	// order by:
 	var sortFields []string
@@ -92,7 +99,7 @@ func GetAllCiiuTipo(query map[string]string, fields []string, sortby []string, o
 		}
 	}
 
-	var l []CiiuTipo
+	var l []ActividadEconomica
 	qs = qs.OrderBy(sortFields...)
 	if _, err = qs.Limit(limit, offset).All(&l, fields...); err == nil {
 		if len(fields) == 0 {
@@ -115,11 +122,11 @@ func GetAllCiiuTipo(query map[string]string, fields []string, sortby []string, o
 	return nil, err
 }
 
-// UpdateCiiuTipo updates CiiuTipo by Id and returns error if
+// UpdateActividadEconomica updates ActividadEconomica by Id and returns error if
 // the record to be updated doesn't exist
-func UpdateCiiuTipoById(m *CiiuTipo) (err error) {
+func UpdateActividadEconomicaById(m *ActividadEconomica) (err error) {
 	o := orm.NewOrm()
-	v := CiiuTipo{Id: m.Id}
+	v := ActividadEconomica{Id: m.Id}
 	// ascertain id exists in the database
 	if err = o.Read(&v); err == nil {
 		var num int64
@@ -130,15 +137,15 @@ func UpdateCiiuTipoById(m *CiiuTipo) (err error) {
 	return
 }
 
-// DeleteCiiuTipo deletes CiiuTipo by Id and returns error if
+// DeleteActividadEconomica deletes ActividadEconomica by Id and returns error if
 // the record to be deleted doesn't exist
-func DeleteCiiuTipo(id string) (err error) {
+func DeleteActividadEconomica(id int) (err error) {
 	o := orm.NewOrm()
-	v := CiiuTipo{Id: id}
+	v := ActividadEconomica{Id: id}
 	// ascertain id exists in the database
 	if err = o.Read(&v); err == nil {
 		var num int64
-		if num, err = o.Delete(&CiiuTipo{Id: id}); err == nil {
+		if num, err = o.Delete(&ActividadEconomica{Id: id}); err == nil {
 			fmt.Println("Number of records deleted in database:", num)
 		}
 	}
