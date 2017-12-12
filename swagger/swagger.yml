@@ -1930,8 +1930,7 @@ definitions:
       Activo:
         type: boolean
       ClasificacionCiiu:
-        type: integer
-        format: int64
+        $ref: '#/definitions/models.ClasificacionCiiu'
       Id:
         type: integer
         format: int64

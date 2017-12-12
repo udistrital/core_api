@@ -10,11 +10,11 @@ import (
 )
 
 type ActividadEconomica struct {
-	Id                 int    `orm:"column(id);pk;auto"`
-	Nombre             string `orm:"column(nombre)"`
-	ActividadEconomica int    `orm:"column(actividad_economica)"`
-	ClasificacionCiiu  int    `orm:"column(clasificacion_ciiu)"`
-	Activo             bool   `orm:"column(activo)"`
+	Id                 int                `orm:"column(id);pk;auto"`
+	Nombre             string             `orm:"column(nombre)"`
+	ActividadEconomica int                `orm:"column(actividad_economica)"`
+	ClasificacionCiiu  *ClasificacionCiiu `orm:"column(clasificacion_ciiu);rel(fk)"`
+	Activo             bool               `orm:"column(activo)"`
 }
 
 func (t *ActividadEconomica) TableName() string {
