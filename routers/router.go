@@ -116,6 +116,12 @@ func init() {
 			),
 		),
 
+		beego.NSNamespace("/dominio_tipo_documento",
+			beego.NSInclude(
+				&controllers.DominioTipoDocumentoController{},
+			),
+		),
+
 		beego.NSNamespace("/clasificacion_ciiu",
 			beego.NSInclude(
 				&controllers.ClasificacionCiiuController{},

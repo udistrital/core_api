@@ -6,18 +6,18 @@ import (
 	"reflect"
 	"strings"
 
-	"time"
-
 	"github.com/astaxie/beego/orm"
 )
 
 type Documento struct {
-	Id             int            `orm:"column(id);pk;auto"`
-	Nombre         string         `orm:"column(nombre);null"`
-	Descripcion    string         `orm:"column(descripcion);null"`
-	TipoDocumento  *TipoDocumento `orm:"column(tipo_documento);rel(fk)"`
-	FechaDocumento time.Time      `orm:"column(fecha_documento);type(date)"`
-	NoDocumento    string         `orm:"column(no_documento)"`
+	Id                int            `orm:"column(id);pk;auto"`
+	Nombre            string         `orm:"column(nombre);null"`
+	Descripcion       string         `orm:"column(descripcion);null"`
+	TipoDocumento     *TipoDocumento `orm:"column(tipo_documento);rel(fk)"`
+	Contenido         string         `orm:"column(contenido);type(json);null"`
+	CodigoAbreviacion string         `orm:"column(codigo_abreviacion);null"`
+	Activo            bool           `orm:"column(activo)"`
+	NumeroOrden       float64        `orm:"column(numero_orden);null"`
 }
 
 func (t *Documento) TableName() string {
@@ -52,7 +52,6 @@ func GetDocumentoById(id int) (v *Documento, err error) {
 func GetAllDocumento(query map[string]string, fields []string, sortby []string, order []string,
 	offset int64, limit int64) (ml []interface{}, err error) {
 	o := orm.NewOrm()
-
 	qs := o.QueryTable(new(Documento)).RelatedSel(5)
 	// query k=v
 	for k, v := range query {
