@@ -2,13 +2,12 @@ package models
 
 import (
 	"fmt"
-	"time"
 
 	"github.com/astaxie/beego/orm"
 )
 
 type TrDocumento struct {
-	Documento *Documento
+	Documento              *Documento
 	ValorAtributoDocumento []*ValorAtributoDocumento
 }
 
@@ -22,10 +21,10 @@ func AddDocumentos(m *TrDocumento) (alerta []string, err error) {
 	var id int64
 
 	//Seteo fecha de creación transacción
-	m.Documento.FechaDocumento = time.Now()
+	//m.Documento.FechaDocumento = time.Now() // se elimino este campo
 	//m.PagoMensual.Mes = float64(m.PagoMensualEstadoPagoMensual.Fecha.Month())
 
-  /*Inserta documento e inserta valoresAtributoDocumento*/
+	/*Inserta documento e inserta valoresAtributoDocumento*/
 	if id, err = o.Insert(m.Documento); err == nil {
 		fmt.Println("Atributo ", m.ValorAtributoDocumento)
 		for _, v := range m.ValorAtributoDocumento {
