@@ -10,7 +10,7 @@ import (
 )
 
 type ValorAtributoDocumento struct {
-	Id                int                `orm:"column(id);pk"`
+	Id                int                `orm:"column(id);pk;auto"`
 	ValorAtributo     string             `orm:"column(valor_atributo)"`
 	AtributoDocumento *AtributoDocumento `orm:"column(atributo_documento);rel(fk)"`
 	Documento         *Documento         `orm:"column(documento);rel(fk)"`
