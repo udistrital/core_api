@@ -8,12 +8,14 @@
 package routers
 
 import (
-	"github.com/astaxie/beego"
 	"github.com/udistrital/core_api/controllers"
+
+	"github.com/astaxie/beego"
 )
 
 func init() {
 	ns := beego.NewNamespace("/v1",
+
 		beego.NSNamespace("/tipo_entidad",
 			beego.NSInclude(
 				&controllers.Tipo_entidadController{},
@@ -125,6 +127,12 @@ func init() {
 		beego.NSNamespace("/clasificacion_ciiu",
 			beego.NSInclude(
 				&controllers.ClasificacionCiiuController{},
+			),
+		),
+
+		beego.NSNamespace("/tipo_dato",
+			beego.NSInclude(
+				&controllers.TipoDatoController{},
 			),
 		),
 	)
