@@ -15,6 +15,7 @@ type ActividadEconomica struct {
 	ActividadEconomica int                `orm:"column(actividad_economica)"`
 	ClasificacionCiiu  *ClasificacionCiiu `orm:"column(clasificacion_ciiu);rel(fk)"`
 	Activo             bool               `orm:"column(activo)"`
+	Codigo             string             `orm:"column(codigo)"`
 }
 
 func (t *ActividadEconomica) TableName() string {
