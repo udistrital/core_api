@@ -7,6 +7,7 @@ import (
 	_ "github.com/lib/pq"
 	"github.com/astaxie/beego/plugins/cors"
 	"github.com/udistrital/utils_oas/apiStatusLib"
+	"github.com/udistrital/utils_oas/xray"
 )
 
 func init() {
@@ -34,6 +35,7 @@ func main() {
 		ExposeHeaders:    []string{"Content-Length"},
 		AllowCredentials: true,
 	}))
-        apistatus.Init()
+    xray.InitXRay()
+	apistatus.Init()
 	beego.Run()
 }
