@@ -10,7 +10,7 @@ import (
 	"github.com/astaxie/beego"
 )
 
-//  SniesAreaController operations for SniesArea
+// SniesAreaController operations for SniesArea
 type SniesAreaController struct {
 	beego.Controller
 }

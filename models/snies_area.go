@@ -10,7 +10,7 @@ import (
 )
 
 type SniesArea struct {
-	Id          int		 `orm:"column(id_area);pk"`
+	Id          int    `orm:"column(id_area);pk"`
 	Nombre      string `orm:"column(nombre)"`
 	Descripcion string `orm:"column(descripcion)"`
 	Estado      string `orm:"column(estado)"`
