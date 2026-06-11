@@ -10,7 +10,7 @@ import (
 	"github.com/astaxie/beego"
 )
 
-//  SniesNucleoBasicoController operations for SniesNucleoBasico
+// SniesNucleoBasicoController operations for SniesNucleoBasico
 type SniesNucleoBasicoController struct {
 	beego.Controller
 }
@@ -135,7 +135,7 @@ func (c *SniesNucleoBasicoController) GetAll() {
 // @router /:id [put]
 func (c *SniesNucleoBasicoController) Put() {
 	idStr := c.Ctx.Input.Param(":id")
-		id, _ := strconv.Atoi(idStr)
+	id, _ := strconv.Atoi(idStr)
 	v := models.SniesNucleoBasico{Id: id}
 	json.Unmarshal(c.Ctx.Input.RequestBody, &v)
 	if err := models.UpdateSniesNucleoBasicoById(&v); err == nil {
@@ -155,7 +155,7 @@ func (c *SniesNucleoBasicoController) Put() {
 // @router /:id [delete]
 func (c *SniesNucleoBasicoController) Delete() {
 	idStr := c.Ctx.Input.Param(":id")
-		id, _ := strconv.Atoi(idStr)
+	id, _ := strconv.Atoi(idStr)
 	if err := models.DeleteSniesNucleoBasico(id); err == nil {
 		c.Data["json"] = "OK"
 	} else {

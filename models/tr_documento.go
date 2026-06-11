@@ -12,7 +12,7 @@ type TrDocumento struct {
 }
 
 /*
-	Función para la transaccion de solicitudes de pagos mensuales
+Función para la transaccion de solicitudes de pagos mensuales
 */
 func AddDocumentos(m *TrDocumento) (alerta []string, err error) {
 	o := orm.NewOrm()
@@ -46,5 +46,4 @@ func AddDocumentos(m *TrDocumento) (alerta []string, err error) {
 		alerta = append(alerta, "Error: ¡Ocurrió un error al insertar el documento!")
 		return
 	}
-	return alerta, err
 }

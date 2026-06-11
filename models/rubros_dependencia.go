@@ -10,12 +10,12 @@ import (
 )
 
 type RubrosDependencia struct {
-	Id                     int                     `orm:"column(id);pk;auto"`
-  Estado                 string                  `orm:"column(estado)"`
-  //Este atributo no debería ser llave foránea con rubros, diferentes esquemas.
-	RubroId                 int                     `orm:"column(rubro_id)"`
-  //Cuando se una oikos al core: DependenciaId es foránea de dependencia(id).
-	DependenciaId               int                 `orm:"column(dependencia_id)"`
+	Id     int    `orm:"column(id);pk;auto"`
+	Estado string `orm:"column(estado)"`
+	//Este atributo no debería ser llave foránea con rubros, diferentes esquemas.
+	RubroId int `orm:"column(rubro_id)"`
+	//Cuando se una oikos al core: DependenciaId es foránea de dependencia(id).
+	DependenciaId int `orm:"column(dependencia_id)"`
 }
 
 func (t *RubrosDependencia) TableName() string {
