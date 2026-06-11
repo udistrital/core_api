@@ -10,9 +10,9 @@ import (
 )
 
 type SniesNucleoBasico struct {
-	Id          int `orm:"column(id_area);pk"`
+	Id          int    `orm:"column(id_area);pk"`
 	Nombre      string `orm:"column(nombre)"`
-	Descripcion string 	`orm:"column(descripcion)"`
+	Descripcion string `orm:"column(descripcion)"`
 	Estado      string `orm:"column(estado)"`
 }
 

@@ -10,8 +10,8 @@ import (
 )
 
 type Tipo_entidad struct {
-	Id                int `orm:"column(id);pk"`
-	Descripcion       string `orm:"column(descripcion);"`
+	Id                 int    `orm:"column(id);pk"`
+	Descripcion        string `orm:"column(descripcion);"`
 	Fecha_creacion     string `orm:"column(fecha_creacion)"`
 	Fecha_modificacion string `orm:"column(fecha_modificacion)"`
 }

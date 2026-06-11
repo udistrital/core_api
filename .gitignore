@@ -3,14 +3,6 @@ core_api
 main
 .vscode/
 .scannerwork/
-swagger/*.png
-swagger/*.html
-swagger/*.js
-swagger/*.map
-swagger/*.css
-swagger/*.yml
-swagger/css/
-swagger/fonts/
-swagger/images/
-swagger/lang/
-swagger/lib/
+swagger/**
+!swagger/swagger.json
+!swagger/swagger.yml

@@ -10,10 +10,10 @@ import (
 )
 
 type OrdenadorGasto struct {
-	Id                     int                     `orm:"column(id);pk;auto"`
-  Cargo                 string                  `orm:"column(cargo)"`
-  //Cuando se una oikos al core: DependenciaId es foránea de dependencia(id).
-	DependenciaId               int                 `orm:"column(dependencia_id)"`
+	Id    int    `orm:"column(id);pk;auto"`
+	Cargo string `orm:"column(cargo)"`
+	//Cuando se una oikos al core: DependenciaId es foránea de dependencia(id).
+	DependenciaId int `orm:"column(dependencia_id)"`
 }
 
 func (t *OrdenadorGasto) TableName() string {

@@ -1,9 +1,9 @@
 package controllers
 
 import (
-	"github.com/udistrital/core_api/models"
 	"encoding/json"
 	"errors"
+	"github.com/udistrital/core_api/models"
 	"strconv"
 	"strings"
 
